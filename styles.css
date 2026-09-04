@@ -748,6 +748,24 @@ img, svg {
   color: var(--primary);
 }
 
+.filter-btn.highlight-jk {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.filter-btn.highlight-jk:hover {
+  background: #dbeafe;
+  border-color: #3b82f6;
+}
+
+.filter-btn.highlight-jk.active {
+  background: #2563eb;
+  color: var(--white);
+  border-color: #2563eb;
+}
+
 .filter-btn.active {
   background: var(--primary);
   color: var(--white);
@@ -1973,3 +1991,664 @@ img, svg {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   Top Bar Consultant Pill
+   ========================================================================== */
+.top-consultant-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.76rem;
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mini-avatar-top {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 1.5px solid #38bdf8;
+  display: inline-block;
+  background: #1e293b;
+}
+
+/* ==========================================================================
+   Hero Executive Profile Card
+   ========================================================================== */
+.hero-profile-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: 0 20px 45px -12px rgba(2, 132, 199, 0.16), 0 0 1px 1px rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  transition: var(--transition);
+}
+
+.hero-profile-card:hover {
+  box-shadow: 0 24px 50px -10px rgba(2, 132, 199, 0.22);
+  transform: translateY(-2px);
+}
+
+.hero-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.profile-avatar-box {
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  position: relative;
+  flex-shrink: 0;
+  padding: 3px;
+  background: linear-gradient(135deg, #0284c7, #38bdf8, #6366f1);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
+}
+
+.hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 17px;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  background: #f8fafc;
+}
+
+.hero-avatar-status {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 16px;
+  height: 16px;
+  background: var(--success);
+  border-radius: 50%;
+  border: 2.5px solid var(--white);
+  animation: pulse-dot-anim 1.8s infinite;
+}
+
+.profile-badge-row {
+  margin-bottom: 0.3rem;
+}
+
+.profile-role-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  border: 1px solid var(--primary-border);
+}
+
+.profile-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.profile-tagline {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--neutral-500);
+}
+
+.profile-mini-bio {
+  font-size: 0.88rem;
+  color: var(--neutral-600);
+  line-height: 1.55;
+  font-style: italic;
+  margin-bottom: 1.1rem;
+  background: var(--neutral-50);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--primary);
+}
+
+.profile-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.p-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--neutral-700);
+  background: #f1f5f9;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--neutral-200);
+}
+
+.p-chip svg {
+  color: var(--primary);
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.btn-profile-consult {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--whatsapp);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.75rem 1.2rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: var(--transition);
+}
+
+.btn-profile-consult:hover {
+  background: var(--whatsapp-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  color: var(--white);
+}
+
+.btn-profile-learn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+  padding: 0.4rem;
+  transition: var(--transition-fast);
+}
+
+.btn-profile-learn:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Quick Notices Compact Banner in Hero */
+.hero-notices-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.35rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #334155;
+  box-shadow: var(--shadow-sm);
+}
+
+.notices-header-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+
+.notices-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #f87171;
+  letter-spacing: 0.05em;
+}
+
+.pulse-indicator-small {
+  width: 7px;
+  height: 7px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: pulse-dot-anim 1.8s infinite;
+}
+
+.view-all-link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.view-all-link:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+.quick-tags-compact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.quick-tags-compact .tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ==========================================================================
+   Dedicated Consultant Section (#consultant)
+   ========================================================================== */
+.consultant-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #edf4fc 50%, #f8fafc 100%);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.consultant-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 3.75rem;
+  align-items: center;
+  margin-top: 3.5rem;
+}
+
+.consultant-media-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.consultant-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-xl);
+}
+
+.consultant-glow-backdrop {
+  position: absolute;
+  inset: -15px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.25) 0%, rgba(99, 102, 241, 0.15) 50%, transparent 70%);
+  filter: blur(25px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.consultant-image-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 480px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 3px solid var(--white);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+  background: var(--neutral-900);
+}
+
+.consultant-full-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.consultant-image-frame:hover .consultant-full-img {
+  transform: scale(1.03);
+}
+
+.image-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.45) 100%);
+  pointer-events: none;
+}
+
+.consultant-badge-floating {
+  position: absolute;
+  z-index: 2;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+.consultant-badge-floating.top-right {
+  top: 18px;
+  right: 18px;
+  color: var(--primary-dark);
+}
+
+.consultant-badge-floating.top-right svg {
+  color: #eab308;
+}
+
+.consultant-badge-floating.bottom-left {
+  bottom: 18px;
+  left: 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  padding: 0.75rem 1.1rem;
+}
+
+.exp-number {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.exp-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--neutral-600);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.consultant-quick-contact {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.qc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--success-text);
+}
+
+.btn-consultant-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--whatsapp);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  transition: var(--transition);
+}
+
+.btn-consultant-wa:hover {
+  background: var(--whatsapp-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+  color: var(--white);
+}
+
+.consultant-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.founder-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--primary-border);
+}
+
+.consultant-name {
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+
+.consultant-designation {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--neutral-600);
+}
+
+.consultant-bio {
+  font-size: 1.02rem;
+  color: var(--neutral-600);
+  line-height: 1.7;
+}
+
+.consultant-bio strong {
+  color: var(--neutral-900);
+}
+
+.consultant-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.highlight-item {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  transition: var(--transition);
+}
+
+.highlight-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--primary-border);
+}
+
+.h-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.h-icon.icon-blue {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.h-icon.icon-indigo {
+  background: #e0e7ff;
+  color: #4f46e5;
+}
+
+.h-icon.icon-emerald {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.h-icon.icon-amber {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.highlight-text-box strong {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--neutral-900);
+  margin-bottom: 0.2rem;
+}
+
+.highlight-text-box p {
+  font-size: 0.82rem;
+  color: var(--neutral-500);
+  line-height: 1.45;
+}
+
+.consultant-stats-row {
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 2rem;
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-sm);
+  gap: 2rem;
+  margin-top: 0.75rem;
+}
+
+.c-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-stat-val {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  line-height: 1.1;
+}
+
+.c-stat-lbl {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--neutral-500);
+}
+
+.c-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--neutral-200);
+}
+
+/* ==========================================================================
+   WhatsApp Floating Avatar Header
+   ========================================================================== */
+.popup-avatar-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.popup-avatar-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 2px solid var(--whatsapp);
+  flex-shrink: 0;
+}
+
+.popup-sub {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  color: var(--neutral-500);
+  font-weight: 600;
+}
+
+.popup-online-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--success);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   Responsive Rules for Consultant Components
+   ========================================================================== */
+@media (max-width: 992px) {
+  .consultant-grid {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .consultant-media-card {
+    max-width: 460px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .consultant-info-card {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-consultant-pill {
+    display: none;
+  }
+
+  .consultant-image-frame {
+    height: 390px;
+  }
+
+  .consultant-name {
+    font-size: 1.85rem;
+  }
+
+  .consultant-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consultant-stats-row {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+  }
+
+  .c-stat-divider {
+    display: none;
+  }
+}
+

@@ -11,6 +11,8 @@ const SHOP_CONFIG = {
   name: "BHAT CYBER CAFE",
   tagline: "Online Forms, CSC & Printing Solutions",
   associatedBusiness: "Bhat Computers & Stationary",
+  founderName: "Er. Bhat",
+  founderRole: "Lead UI Designer & Senior Digital Consultant",
   whatsappNumber: "919419145664",
   displayPhone: "+91 94191 45664",
   address: "BHAT CYBER CAFE (Bhat Computers & Stationary), Near State Bank of India (SBI), Kishtwar, Jammu & Kashmir - 182204",
@@ -25,8 +27,129 @@ const SHOP_CONFIG = {
 // 2. ACTIVE RECRUITMENT & VACANCIES DATA
 // ==========================================
 const VACANCIES_DATA = [
+  // ==========================================
+  // JAMMU & KASHMIR (J&K UT) RECRUITMENTS FIRST
+  // ==========================================
   {
     id: 1,
+    name: "JKSSB Junior Assistant & Executive Cadre Recruitment 2026",
+    department: "J&K Services Selection Board (General Administration Dept, J&K UT)",
+    eligibility: "Graduate in Any Discipline with 35 WPM Typing Speed & 6-Month Computer Diploma",
+    totalPosts: "2,450+ Vacancies Across District, Divisional & UT Cadres",
+    lastDate: "08 Oct 2026",
+    category: "jk-state",
+    status: "urgent",
+    statusLabel: "Closing Soon",
+    documentsRequired: [
+      "J&K UT Domicile Certificate (Mandatory)",
+      "Graduation Degree / Consolidated Marksheets",
+      "10th Class Diploma / Marksheet (DOB Proof)",
+      "12th Standard Marks Card (JKBOSE / CBSE)",
+      "6-Month Computer Application Diploma",
+      "Valid Reserved Category Certificate (RBA, SC, ST, OSC/OBC, EWS, PSP, ALC/IB)",
+      "Aadhaar Card & 4 Recent Passport Size Photographs"
+    ]
+  },
+  {
+    id: 2,
+    name: "J&K Police Constable Bharti (Executive, Armed & SDRF)",
+    department: "J&K Police Recruitment Board (JKPRB)",
+    eligibility: "10th / 12th Standard Pass • Age: 18 - 28 Years (Physical Endurance & Measurement Test)",
+    totalPosts: "4,022+ Constable Posts Across Jammu & Kashmir",
+    lastDate: "15 Oct 2026",
+    category: "jk-state",
+    status: "active",
+    statusLabel: "Active Registration",
+    documentsRequired: [
+      "Permanent Domicile Certificate of J&K UT",
+      "10th & 12th Marks Statements & Passing Certificate",
+      "Date of Birth Certificate / Matriculation Diploma",
+      "Category Certificate (RBA, ALC/IB, SC, ST, OSC, EWS if applicable)",
+      "Aadhaar Card (Linked with active mobile)",
+      "Recent Clear Color Passport Photographs & Signature"
+    ]
+  },
+  {
+    id: 3,
+    name: "J&K Bank Banking Associate & Probationary Officer (PO)",
+    department: "The Jammu & Kashmir Bank Ltd.",
+    eligibility: "Bachelor's Degree in Any Discipline (Min. 55% Aggregate) • Permanent Resident of J&K / Ladakh",
+    totalPosts: "1,250+ Banking Associates & PO Positions",
+    lastDate: "20 Oct 2026",
+    category: "jk-state",
+    status: "active",
+    statusLabel: "Registration Open",
+    documentsRequired: [
+      "J&K / Ladakh Domicile Certificate",
+      "Graduation Final Degree & All Semester Marksheets",
+      "10th Standard Marks Card (Date of Birth Verification)",
+      "Aadhaar Card & PAN Card",
+      "Passport Size Photograph (White Background)",
+      "Candidate Signature & Left Thumb Impression on Clean White Paper"
+    ]
+  },
+  {
+    id: 4,
+    name: "JKPSC Combined Competitive Examination (CCE / KAS 2026)",
+    department: "J&K Public Service Commission (JKPSC)",
+    eligibility: "Bachelor's Degree in Any Field • Age: 21 - 32 Years (Age relaxation for reserved categories)",
+    totalPosts: "275+ Administrative, Police & Account Services (JKS / JKPS)",
+    lastDate: "28 Oct 2026",
+    category: "jk-state",
+    status: "active",
+    statusLabel: "Official Notification Active",
+    documentsRequired: [
+      "J&K UT Domicile Certificate",
+      "Graduation Degree & Detailed Marks Certificates",
+      "Matriculation (10th) Certificate / DOB Proof",
+      "Competent Authority Category Certificate (RBA, SC, ST, EWS, PSP, Social Caste)",
+      "Aadhaar Card",
+      "Color Passport Photograph & Scanned Signature"
+    ]
+  },
+  {
+    id: 5,
+    name: "JKSSB Female Supervisor & Social Welfare Department",
+    department: "Social Welfare Department, Govt. of Jammu & Kashmir",
+    eligibility: "Graduation (Preference for candidates with Home Science, Sociology, or Child Development)",
+    totalPosts: "201 Posts Across J&K Districts",
+    lastDate: "30 Sep 2026",
+    category: "jk-state",
+    status: "urgent",
+    statusLabel: "Closing in 5 Days",
+    documentsRequired: [
+      "J&K Domicile Certificate",
+      "Graduation Degree with Subject Proof",
+      "10th & 12th Marks Cards (JKBOSE / CBSE)",
+      "Aadhaar Card",
+      "Reserved Category Certificate (if applicable)",
+      "Recent Passport Size Photos"
+    ]
+  },
+  {
+    id: 6,
+    name: "High Court of J&K and Ladakh Non-Gazetted Staff",
+    department: "High Court of Jammu & Kashmir and Ladakh",
+    eligibility: "Graduate with Computer Typing (35 WPM) & Shorthand Knowledge",
+    totalPosts: "150+ Stenographer, Reader & Junior Assistant Posts",
+    lastDate: "05 Nov 2026",
+    category: "jk-state",
+    status: "upcoming",
+    statusLabel: "Upcoming Notification",
+    documentsRequired: [
+      "J&K / Ladakh UT Domicile Certificate",
+      "Graduation Degree & Typing / Shorthand Speed Certificate",
+      "10th & 12th Academic Records",
+      "Aadhaar Card",
+      "Scanned Photograph & Signature"
+    ]
+  },
+
+  // ==========================================
+  // NATIONAL & CENTRAL RECRUITMENTS NEXT
+  // ==========================================
+  {
+    id: 7,
     name: "SSC CHSL (10+2) Recruitment 2026",
     department: "Staff Selection Commission (Govt. of India)",
     eligibility: "12th Standard Pass (Any Stream) • Age Limit: 18 - 27 Years",
@@ -44,7 +167,7 @@ const VACANCIES_DATA = [
     ]
   },
   {
-    id: 2,
+    id: 8,
     name: "Railway RRB NTPC & Group D Recruitment",
     department: "Railway Recruitment Control Board (RRB)",
     eligibility: "10th Pass / 12th Pass / Bachelor's Degree • Age: 18 - 33 Years",
@@ -63,26 +186,7 @@ const VACANCIES_DATA = [
     ]
   },
   {
-    id: 3,
-    name: "State Police Constable & Sub-Inspector (SI)",
-    department: "Police Recruitment & Promotion Board",
-    eligibility: "10th / 12th Standard • Physical & Height Standards Apply",
-    totalPosts: "4,200+ Constable & SI Posts",
-    lastDate: "05 Oct 2026",
-    category: "defense",
-    status: "urgent",
-    statusLabel: "Closing Soon",
-    documentsRequired: [
-      "10th & 12th Marks Statements & Certificates",
-      "Permanent Resident Certificate (PRC / State Domicile)",
-      "Aadhaar Card",
-      "Recent Color Passport Photographs",
-      "Reserved Category Certificate (if applicable)",
-      "Character Verification / Ward Clearance"
-    ]
-  },
-  {
-    id: 4,
+    id: 9,
     name: "Indian Army Agniveer Rally Recruitment 2026",
     department: "Join Indian Army (Ministry of Defence)",
     eligibility: "8th / 10th / 12th Pass (Min. 45% Aggregate) • Age: 17.5 - 21 Years",
@@ -101,7 +205,7 @@ const VACANCIES_DATA = [
     ]
   },
   {
-    id: 5,
+    id: 10,
     name: "NEET (UG) 2027 Medical Entrance Examination",
     department: "National Testing Agency (NTA)",
     eligibility: "12th Standard Passed or Appearing with Physics, Chemistry & Biology",
@@ -119,25 +223,7 @@ const VACANCIES_DATA = [
     ]
   },
   {
-    id: 6,
-    name: "State Subordinate Services (JKSSB / State PSC)",
-    department: "General Administration & Revenue Services",
-    eligibility: "Graduation in Any Stream / 12th Pass • State Domicile Mandatory",
-    totalPosts: "1,850+ Junior Assistant & Executive Posts",
-    lastDate: "30 Oct 2026",
-    category: "state",
-    status: "active",
-    statusLabel: "Special Recruitment Drive",
-    documentsRequired: [
-      "Valid State Domicile Certificate",
-      "10th, 12th & Graduation Degree / Marksheets",
-      "Aadhaar Card",
-      "Passport Size Photograph & Candidate Signature",
-      "Category Certificate (RBA, SC, ST, OSC, EWS)"
-    ]
-  },
-  {
-    id: 7,
+    id: 11,
     name: "PM Yashasvi & National Scholarship Portal 2026",
     department: "Ministry of Social Justice & Empowerment",
     eligibility: "Students currently enrolled in Class 9, 10, 11, 12 or College",
@@ -152,25 +238,6 @@ const VACANCIES_DATA = [
       "Competent Authority Income Certificate",
       "Bank Passbook (Applicant's Aadhaar-seeded account)",
       "School / College Bonafide Certificate & Fee Receipt"
-    ]
-  },
-  {
-    id: 8,
-    name: "IBPS Bank Clerk & Probationary Officer (PO-XV)",
-    department: "Institute of Banking Personnel Selection",
-    eligibility: "Bachelor's Degree in Any Discipline • Basic Computer Literacy",
-    totalPosts: "6,128 Banking Vacancies Across Participating Banks",
-    lastDate: "08 Oct 2026",
-    category: "central",
-    status: "active",
-    statusLabel: "Active Registration",
-    documentsRequired: [
-      "Graduation Degree Marksheets & Provisional Certificate",
-      "Aadhaar Card / PAN Card",
-      "Passport Photograph (4.5cm x 3.5cm)",
-      "Signature (Standard Case)",
-      "Left Thumb Impression on Plain White Paper",
-      "Official Handwritten Declaration Text"
     ]
   }
 ];
@@ -302,7 +369,7 @@ function initVacanciesList() {
           <!-- Top Row -->
           <div class="v-top-row">
             <div class="v-title-area">
-              <span class="v-badge-category">${item.category.toUpperCase()} RECRUITMENT</span>
+              <span class="v-badge-category">${item.category === 'jk-state' ? 'JAMMU & KASHMIR (J&K UT) RECRUITMENT' : item.category.toUpperCase() + ' RECRUITMENT'}</span>
               <h3 class="v-title">${escapeHtml(item.name)}</h3>
               <span class="v-dept">${escapeHtml(item.department)} • <strong>${escapeHtml(item.totalPosts)}</strong></span>
             </div>

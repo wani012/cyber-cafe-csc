@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=20260904_premium">
 </head>
 <body>
 
@@ -22,6 +22,10 @@
         <span class="status-dot" id="status-indicator"></span>
         <span id="status-text">Open Today: 8:00 AM – 9:00 PM</span>
         <span class="center-badge">Authorized CSC & Digital Center</span>
+      </div>
+      <div class="top-consultant-pill">
+        <img src="profile.png" alt="Er. Bhat - UI Designer & Digital Consultant" class="mini-avatar-top">
+        <span>Assisted by <strong>Er. Bhat</strong> (UI Designer & Lead Consultant)</span>
       </div>
       <div class="quick-contact">
         <a href="tel:+919419145664" class="contact-link">
@@ -52,6 +56,7 @@
 
       <nav class="nav-links" id="nav-menu">
         <a href="#vacancies" class="nav-link">Active Vacancies <span class="badge-pill">Live</span></a>
+        <a href="#consultant" class="nav-link">Meet Consultant</a>
         <a href="#doc-checklist" class="nav-link">Document Guidelines</a>
         <a href="#order" class="nav-link">Submit Documents</a>
         <a href="#services" class="nav-link">All Services</a>
@@ -122,25 +127,68 @@
       </div>
 
       <div class="hero-card-preview">
-        <div class="hero-quick-card">
-          <div class="card-header-bar">
-            <span class="live-pill">ACTIVE NOTICES</span>
-            <span class="center-type">Kishtwar Hub</span>
+        <!-- Executive Profile Spotlight Card -->
+        <div class="hero-profile-card">
+          <div class="hero-profile-header">
+            <div class="profile-avatar-box">
+              <img src="profile.png" alt="Er. Bhat - UI Designer & Digital Consultant" class="hero-avatar-img">
+              <span class="hero-avatar-status" title="Online & Available"></span>
+            </div>
+            <div class="hero-profile-details">
+              <div class="profile-badge-row">
+                <span class="profile-role-pill">LEAD UI DESIGNER & CONSULTANT</span>
+              </div>
+              <h3 class="profile-name">Er. Bhat</h3>
+              <p class="profile-tagline">Founder • Precision Form & CSC Specialist</p>
+            </div>
           </div>
-          <h3>Application Help Desk</h3>
-          <p>Review current eligibility criteria and required documents before applying:</p>
-          <div class="quick-tags">
-            <span class="tag">SSC CHSL / CGL</span>
-            <span class="tag">Railway RRB</span>
-            <span class="tag">Police & Defense</span>
-            <span class="tag">NEET / CUET</span>
-            <span class="tag">JKSSB State Jobs</span>
+
+          <p class="profile-mini-bio">
+            "Ensuring 100% verified accuracy on every government recruitment form, academic portal, and digital document in Kishtwar."
+          </p>
+
+          <div class="profile-chips-row">
+            <span class="p-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              10,000+ Forms
+            </span>
+            <span class="p-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Zero Rejections
+            </span>
+            <span class="p-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              CSC Certified
+            </span>
           </div>
-          <div class="quick-card-footer">
-            <a href="#vacancies" class="quick-action-link">
-              <span>View Open Deadlines & Requirements</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+
+          <div class="profile-actions">
+            <a href="https://wa.me/919419145664?text=Hello%20Er.%20Bhat,%20I%20would%20like%20a%20personal%20consultation%20regarding%20my%20recruitment%20form%20submission." target="_blank" rel="noopener" class="btn btn-profile-consult">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Consult Directly on WhatsApp</span>
             </a>
+            <a href="#consultant" class="btn-profile-learn">
+              <span>View Profile & Credentials</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Notices Banner -->
+        <div class="hero-notices-banner">
+          <div class="notices-header-strip">
+            <span class="notices-indicator">
+              <span class="pulse-indicator-small"></span>
+              ACTIVE RECRUITMENTS
+            </span>
+            <a href="#vacancies" class="view-all-link">Browse 8+ Openings &rarr;</a>
+          </div>
+          <div class="quick-tags-compact">
+            <span class="tag">JKSSB State</span>
+            <span class="tag">J&K Police</span>
+            <span class="tag">SSC CHSL</span>
+            <span class="tag">J&K Bank</span>
+            <span class="tag">JKPSC CCE</span>
           </div>
         </div>
 
@@ -187,8 +235,8 @@
         </div>
         <div class="filter-pills" id="filter-container">
           <button class="filter-btn active" data-category="all">All Vacancies</button>
+          <button class="filter-btn highlight-jk" data-category="jk-state">Jammu & Kashmir (JKSSB / JKPSC / Police)</button>
           <button class="filter-btn" data-category="central">Central Govt</button>
-          <button class="filter-btn" data-category="state">State Services</button>
           <button class="filter-btn" data-category="defense">Police & Defense</button>
           <button class="filter-btn" data-category="entrance">Admissions & NEET</button>
           <button class="filter-btn" data-category="scholarship">Scholarships</button>
@@ -197,12 +245,643 @@
 
       <!-- Responsive Vacancies Container -->
       <div class="vacancies-container" id="vacancies-list">
-        <!-- Rendered dynamically via script.js -->
+        <article class="vacancy-card" data-category="jk-state">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">JAMMU & KASHMIR (J&K UT) RECRUITMENT</span>
+              <h3 class="v-title">JKSSB Junior Assistant & Executive Cadre Recruitment 2026</h3>
+              <span class="v-dept">J&K Services Selection Board (General Administration Dept, J&K UT) • <strong>2,450+ Vacancies Across District, Divisional & UT Cadres</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 08 Oct 2026</span>
+              </span>
+              <span class="status-badge badge-urgent">Closing Soon</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> Graduate in Any Discipline with 35 WPM Typing Speed & 6-Month Computer Diploma</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>J&K UT Domicile Certificate (Mandatory)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Graduation Degree / Consolidated Marksheets</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>10th Class Diploma / Marksheet (DOB Proof)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>12th Standard Marks Card (JKBOSE / CBSE)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>6-Month Computer Application Diploma</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Valid Reserved Category Certificate (RBA, SC, ST, OSC/OBC, EWS, PSP, ALC/IB)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card & 4 Recent Passport Size Photographs</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2AJKSSB%20Junior%20Assistant%20%26%20Executive%20Cadre%20Recruitment%202026%2A%20%28J%26K%20Services%20Selection%20Board%20%28General%20Administration%20Dept%2C%20J%26K%20UT%29%29.%0A%0AEligibility%3A%20Graduate%20in%20Any%20Discipline%20with%2035%20WPM%20Typing%20Speed%20%26%206-Month%20Computer%20Diploma%0ALast%20Date%3A%2008%20Oct%202026%0A%0ARequired%20Documents%3A%0A-%20J%26K%20UT%20Domicile%20Certificate%20%28Mandatory%29%0A-%20Graduation%20Degree%20/%20Consolidated%20Marksheets%0A-%2010th%20Class%20Diploma%20/%20Marksheet%20%28DOB%20Proof%29%0A-%2012th%20Standard%20Marks%20Card%20%28JKBOSE%20/%20CBSE%29%0A-%206-Month%20Computer%20Application%20Diploma%0A-%20Valid%20Reserved%20Category%20Certificate%20%28RBA%2C%20SC%2C%20ST%2C%20OSC/OBC%2C%20EWS%2C%20PSP%2C%20ALC/IB%29%0A-%20Aadhaar%20Card%20%26%204%20Recent%20Passport%20Size%20Photographs" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="vacancy-card" data-category="jk-state">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">JAMMU & KASHMIR (J&K UT) RECRUITMENT</span>
+              <h3 class="v-title">J&K Police Constable Bharti (Executive, Armed & SDRF)</h3>
+              <span class="v-dept">J&K Police Recruitment Board (JKPRB) • <strong>4,022+ Constable Posts Across Jammu & Kashmir</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 15 Oct 2026</span>
+              </span>
+              <span class="status-badge badge-active">Active Registration</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> 10th / 12th Standard Pass • Age: 18 - 28 Years (Physical Endurance & Measurement Test)</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Permanent Domicile Certificate of J&K UT</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>10th & 12th Marks Statements & Passing Certificate</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Date of Birth Certificate / Matriculation Diploma</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Category Certificate (RBA, ALC/IB, SC, ST, OSC, EWS if applicable)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card (Linked with active mobile)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Recent Clear Color Passport Photographs & Signature</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2AJ%26K%20Police%20Constable%20Bharti%20%28Executive%2C%20Armed%20%26%20SDRF%29%2A%20%28J%26K%20Police%20Recruitment%20Board%20%28JKPRB%29%29.%0A%0AEligibility%3A%2010th%20/%2012th%20Standard%20Pass%20%E2%80%A2%20Age%3A%2018%20-%2028%20Years%20%28Physical%20Endurance%20%26%20Measurement%20Test%29%0ALast%20Date%3A%2015%20Oct%202026%0A%0ARequired%20Documents%3A%0A-%20Permanent%20Domicile%20Certificate%20of%20J%26K%20UT%0A-%2010th%20%26%2012th%20Marks%20Statements%20%26%20Passing%20Certificate%0A-%20Date%20of%20Birth%20Certificate%20/%20Matriculation%20Diploma%0A-%20Category%20Certificate%20%28RBA%2C%20ALC/IB%2C%20SC%2C%20ST%2C%20OSC%2C%20EWS%20if%20applicable%29%0A-%20Aadhaar%20Card%20%28Linked%20with%20active%20mobile%29%0A-%20Recent%20Clear%20Color%20Passport%20Photographs%20%26%20Signature" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="vacancy-card" data-category="jk-state">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">JAMMU & KASHMIR (J&K UT) RECRUITMENT</span>
+              <h3 class="v-title">J&K Bank Banking Associate & Probationary Officer (PO)</h3>
+              <span class="v-dept">The Jammu & Kashmir Bank Ltd. • <strong>1,250+ Banking Associates & PO Positions</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 20 Oct 2026</span>
+              </span>
+              <span class="status-badge badge-active">Registration Open</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> Bachelor's Degree in Any Discipline (Min. 55% Aggregate) • Permanent Resident of J&K / Ladakh</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>J&K / Ladakh Domicile Certificate</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Graduation Final Degree & All Semester Marksheets</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>10th Standard Marks Card (Date of Birth Verification)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card & PAN Card</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Passport Size Photograph (White Background)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Candidate Signature & Left Thumb Impression on Clean White Paper</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2AJ%26K%20Bank%20Banking%20Associate%20%26%20Probationary%20Officer%20%28PO%29%2A%20%28The%20Jammu%20%26%20Kashmir%20Bank%20Ltd.%29.%0A%0AEligibility%3A%20Bachelor%27s%20Degree%20in%20Any%20Discipline%20%28Min.%2055%25%20Aggregate%29%20%E2%80%A2%20Permanent%20Resident%20of%20J%26K%20/%20Ladakh%0ALast%20Date%3A%2020%20Oct%202026%0A%0ARequired%20Documents%3A%0A-%20J%26K%20/%20Ladakh%20Domicile%20Certificate%0A-%20Graduation%20Final%20Degree%20%26%20All%20Semester%20Marksheets%0A-%2010th%20Standard%20Marks%20Card%20%28Date%20of%20Birth%20Verification%29%0A-%20Aadhaar%20Card%20%26%20PAN%20Card%0A-%20Passport%20Size%20Photograph%20%28White%20Background%29%0A-%20Candidate%20Signature%20%26%20Left%20Thumb%20Impression%20on%20Clean%20White%20Paper" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="vacancy-card" data-category="jk-state">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">JAMMU & KASHMIR (J&K UT) RECRUITMENT</span>
+              <h3 class="v-title">JKPSC Combined Competitive Examination (CCE / KAS 2026)</h3>
+              <span class="v-dept">J&K Public Service Commission (JKPSC) • <strong>275+ Administrative, Police & Account Services (JKS / JKPS)</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 28 Oct 2026</span>
+              </span>
+              <span class="status-badge badge-active">Official Notification Active</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> Bachelor's Degree in Any Field • Age: 21 - 32 Years (Age relaxation for reserved categories)</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>J&K UT Domicile Certificate</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Graduation Degree & Detailed Marks Certificates</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Matriculation (10th) Certificate / DOB Proof</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Competent Authority Category Certificate (RBA, SC, ST, EWS, PSP, Social Caste)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Color Passport Photograph & Scanned Signature</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2AJKPSC%20Combined%20Competitive%20Examination%20%28CCE%20/%20KAS%202026%29%2A%20%28J%26K%20Public%20Service%20Commission%20%28JKPSC%29%29.%0A%0AEligibility%3A%20Bachelor%27s%20Degree%20in%20Any%20Field%20%E2%80%A2%20Age%3A%2021%20-%2032%20Years%20%28Age%20relaxation%20for%20reserved%20categories%29%0ALast%20Date%3A%2028%20Oct%202026%0A%0ARequired%20Documents%3A%0A-%20J%26K%20UT%20Domicile%20Certificate%0A-%20Graduation%20Degree%20%26%20Detailed%20Marks%20Certificates%0A-%20Matriculation%20%2810th%29%20Certificate%20/%20DOB%20Proof%0A-%20Competent%20Authority%20Category%20Certificate%20%28RBA%2C%20SC%2C%20ST%2C%20EWS%2C%20PSP%2C%20Social%20Caste%29%0A-%20Aadhaar%20Card%0A-%20Color%20Passport%20Photograph%20%26%20Scanned%20Signature" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="vacancy-card" data-category="jk-state">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">JAMMU & KASHMIR (J&K UT) RECRUITMENT</span>
+              <h3 class="v-title">JKSSB Female Supervisor & Social Welfare Department</h3>
+              <span class="v-dept">Social Welfare Department, Govt. of Jammu & Kashmir • <strong>201 Posts Across J&K Districts</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 30 Sep 2026</span>
+              </span>
+              <span class="status-badge badge-urgent">Closing in 5 Days</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> Graduation (Preference for candidates with Home Science, Sociology, or Child Development)</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>J&K Domicile Certificate</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Graduation Degree with Subject Proof</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>10th & 12th Marks Cards (JKBOSE / CBSE)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Reserved Category Certificate (if applicable)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Recent Passport Size Photos</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2AJKSSB%20Female%20Supervisor%20%26%20Social%20Welfare%20Department%2A%20%28Social%20Welfare%20Department%2C%20Govt.%20of%20Jammu%20%26%20Kashmir%29.%0A%0AEligibility%3A%20Graduation%20%28Preference%20for%20candidates%20with%20Home%20Science%2C%20Sociology%2C%20or%20Child%20Development%29%0ALast%20Date%3A%2030%20Sep%202026%0A%0ARequired%20Documents%3A%0A-%20J%26K%20Domicile%20Certificate%0A-%20Graduation%20Degree%20with%20Subject%20Proof%0A-%2010th%20%26%2012th%20Marks%20Cards%20%28JKBOSE%20/%20CBSE%29%0A-%20Aadhaar%20Card%0A-%20Reserved%20Category%20Certificate%20%28if%20applicable%29%0A-%20Recent%20Passport%20Size%20Photos" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="vacancy-card" data-category="jk-state">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">JAMMU & KASHMIR (J&K UT) RECRUITMENT</span>
+              <h3 class="v-title">High Court of J&K and Ladakh Non-Gazetted Staff</h3>
+              <span class="v-dept">High Court of Jammu & Kashmir and Ladakh • <strong>150+ Stenographer, Reader & Junior Assistant Posts</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 05 Nov 2026</span>
+              </span>
+              <span class="status-badge badge-upcoming">Upcoming Notification</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> Graduate with Computer Typing (35 WPM) & Shorthand Knowledge</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>J&K / Ladakh UT Domicile Certificate</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Graduation Degree & Typing / Shorthand Speed Certificate</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>10th & 12th Academic Records</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Scanned Photograph & Signature</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2AHigh%20Court%20of%20J%26K%20and%20Ladakh%20Non-Gazetted%20Staff%2A%20%28High%20Court%20of%20Jammu%20%26%20Kashmir%20and%20Ladakh%29.%0A%0AEligibility%3A%20Graduate%20with%20Computer%20Typing%20%2835%20WPM%29%20%26%20Shorthand%20Knowledge%0ALast%20Date%3A%2005%20Nov%202026%0A%0ARequired%20Documents%3A%0A-%20J%26K%20/%20Ladakh%20UT%20Domicile%20Certificate%0A-%20Graduation%20Degree%20%26%20Typing%20/%20Shorthand%20Speed%20Certificate%0A-%2010th%20%26%2012th%20Academic%20Records%0A-%20Aadhaar%20Card%0A-%20Scanned%20Photograph%20%26%20Signature" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="vacancy-card" data-category="central">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">CENTRAL RECRUITMENT</span>
+              <h3 class="v-title">SSC CHSL (10+2) Recruitment 2026</h3>
+              <span class="v-dept">Staff Selection Commission (Govt. of India) • <strong>3,712+ Vacancies (LDC, JSA, DEO)</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 28 Sep 2026</span>
+              </span>
+              <span class="status-badge badge-urgent">Closing in 3 Days</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> 12th Standard Pass (Any Stream) • Age Limit: 18 - 27 Years</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>10th & 12th Marksheets / Passing Certificates</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card (Original / Digital Copy)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Recent Passport Size Photograph (White Background)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Candidate Signature on clean unlined paper</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Category Certificate (OBC, SC, ST, EWS if applicable)</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2ASSC%20CHSL%20%2810%2B2%29%20Recruitment%202026%2A%20%28Staff%20Selection%20Commission%20%28Govt.%20of%20India%29%29.%0A%0AEligibility%3A%2012th%20Standard%20Pass%20%28Any%20Stream%29%20%E2%80%A2%20Age%20Limit%3A%2018%20-%2027%20Years%0ALast%20Date%3A%2028%20Sep%202026%0A%0ARequired%20Documents%3A%0A-%2010th%20%26%2012th%20Marksheets%20/%20Passing%20Certificates%0A-%20Aadhaar%20Card%20%28Original%20/%20Digital%20Copy%29%0A-%20Recent%20Passport%20Size%20Photograph%20%28White%20Background%29%0A-%20Candidate%20Signature%20on%20clean%20unlined%20paper%0A-%20Category%20Certificate%20%28OBC%2C%20SC%2C%20ST%2C%20EWS%20if%20applicable%29" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="vacancy-card" data-category="central">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">CENTRAL RECRUITMENT</span>
+              <h3 class="v-title">Railway RRB NTPC & Group D Recruitment</h3>
+              <span class="v-dept">Railway Recruitment Control Board (RRB) • <strong>11,558+ Positions Across Zones</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 20 Oct 2026</span>
+              </span>
+              <span class="status-badge badge-active">Active Registration</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> 10th Pass / 12th Pass / Bachelor's Degree • Age: 18 - 33 Years</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>10th Standard Marksheet (Date of Birth Proof)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>12th / Graduation Degree Certificate</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card (Mobile Number Linked)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Color Passport Size Photograph</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Candidate Signature & Left Thumb Impression</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Active Bank Account Details (Fee Refund)</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2ARailway%20RRB%20NTPC%20%26%20Group%20D%20Recruitment%2A%20%28Railway%20Recruitment%20Control%20Board%20%28RRB%29%29.%0A%0AEligibility%3A%2010th%20Pass%20/%2012th%20Pass%20/%20Bachelor%27s%20Degree%20%E2%80%A2%20Age%3A%2018%20-%2033%20Years%0ALast%20Date%3A%2020%20Oct%202026%0A%0ARequired%20Documents%3A%0A-%2010th%20Standard%20Marksheet%20%28Date%20of%20Birth%20Proof%29%0A-%2012th%20/%20Graduation%20Degree%20Certificate%0A-%20Aadhaar%20Card%20%28Mobile%20Number%20Linked%29%0A-%20Color%20Passport%20Size%20Photograph%0A-%20Candidate%20Signature%20%26%20Left%20Thumb%20Impression%0A-%20Active%20Bank%20Account%20Details%20%28Fee%20Refund%29" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="vacancy-card" data-category="defense">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">DEFENSE RECRUITMENT</span>
+              <h3 class="v-title">Indian Army Agniveer Rally Recruitment 2026</h3>
+              <span class="v-dept">Join Indian Army (Ministry of Defence) • <strong>All India Zonal Recruitment Drives</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 15 Oct 2026</span>
+              </span>
+              <span class="status-badge badge-active">Registration Open</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> 8th / 10th / 12th Pass (Min. 45% Aggregate) • Age: 17.5 - 21 Years</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Academic Marksheet (8th / 10th / 12th)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card (Linked with DigiLocker for OTP)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>State Domicile / Nativity Certificate</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Caste Certificate signed by Tehsildar</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Unmarried Certificate from Local Representative</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Recent Clear Passport Photographs (White BG)</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2AIndian%20Army%20Agniveer%20Rally%20Recruitment%202026%2A%20%28Join%20Indian%20Army%20%28Ministry%20of%20Defence%29%29.%0A%0AEligibility%3A%208th%20/%2010th%20/%2012th%20Pass%20%28Min.%2045%25%20Aggregate%29%20%E2%80%A2%20Age%3A%2017.5%20-%2021%20Years%0ALast%20Date%3A%2015%20Oct%202026%0A%0ARequired%20Documents%3A%0A-%20Academic%20Marksheet%20%288th%20/%2010th%20/%2012th%29%0A-%20Aadhaar%20Card%20%28Linked%20with%20DigiLocker%20for%20OTP%29%0A-%20State%20Domicile%20/%20Nativity%20Certificate%0A-%20Caste%20Certificate%20signed%20by%20Tehsildar%0A-%20Unmarried%20Certificate%20from%20Local%20Representative%0A-%20Recent%20Clear%20Passport%20Photographs%20%28White%20BG%29" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="vacancy-card" data-category="entrance">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">ENTRANCE EXAMINATION</span>
+              <h3 class="v-title">NEET (UG) 2027 Medical Entrance Examination</h3>
+              <span class="v-dept">National Testing Agency (NTA) • <strong>National MBBS, BDS & Allied Medical Admissions</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 25 Oct 2026</span>
+              </span>
+              <span class="status-badge badge-active">Registration Open</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> 12th Standard Passed or Appearing with Physics, Chemistry & Biology</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>10th & 12th Standard Marksheet & Passing Certificate</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card or Government Photo Identity</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Passport Size & Postcard Size (4x6) Photographs</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Signature in Running Handwriting</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Left & Right Hand Fingers and Thumb Impressions</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2ANEET%20%28UG%29%202027%20Medical%20Entrance%20Examination%2A%20%28National%20Testing%20Agency%20%28NTA%29%29.%0A%0AEligibility%3A%2012th%20Standard%20Passed%20or%20Appearing%20with%20Physics%2C%20Chemistry%20%26%20Biology%0ALast%20Date%3A%2025%20Oct%202026%0A%0ARequired%20Documents%3A%0A-%2010th%20%26%2012th%20Standard%20Marksheet%20%26%20Passing%20Certificate%0A-%20Aadhaar%20Card%20or%20Government%20Photo%20Identity%0A-%20Passport%20Size%20%26%20Postcard%20Size%20%284x6%29%20Photographs%0A-%20Signature%20in%20Running%20Handwriting%0A-%20Left%20%26%20Right%20Hand%20Fingers%20and%20Thumb%20Impressions" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="vacancy-card" data-category="scholarship">
+          <div class="v-top-row">
+            <div class="v-title-area">
+              <span class="v-badge-category">SCHOLARSHIP PORTAL</span>
+              <h3 class="v-title">PM Yashasvi & National Scholarship Portal 2026</h3>
+              <span class="v-dept">Ministry of Social Justice & Empowerment • <strong>Direct Benefit Transfer Financial Grant</strong></span>
+            </div>
+            <div class="v-dates-badges">
+              <span class="last-date-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Deadline: 30 Sep 2026</span>
+              </span>
+              <span class="status-badge badge-urgent">Closing in 5 Days</span>
+            </div>
+          </div>
+          <div class="v-info-bar">
+            <div class="v-info-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span><strong>Eligibility Criteria:</strong> Students currently enrolled in Class 9, 10, 11, 12 or College</span>
+            </div>
+          </div>
+          <div class="v-docs-section">
+            <div class="v-docs-header">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Mandatory Documents Required for Application:</span>
+            </div>
+            <div class="v-docs-pills">
+              <span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Previous Academic Year Marksheet</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Aadhaar Card (Applicant & Guardian)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Competent Authority Income Certificate</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Bank Passbook (Applicant's Aadhaar-seeded account)</span></span><span class="doc-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>School / College Bonafide Certificate & Fee Receipt</span></span>
+            </div>
+          </div>
+          <div class="v-action-row">
+            <div class="v-shop-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or submit documents via WhatsApp.</span>
+            </div>
+            <div class="v-cta-buttons">
+              <a href="#location" class="btn-visit-cafe">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>View Center Location</span>
+              </a>
+              <a href="https://wa.me/919419145664?text=%2AAPPLICATION%20INQUIRY%20-%20BHAT%20CYBER%20CAFE%2A%0A%0AHello%20BHAT%20CYBER%20CAFE%2C%0AI%20would%20like%20to%20apply%20for%20%2APM%20Yashasvi%20%26%20National%20Scholarship%20Portal%202026%2A%20%28Ministry%20of%20Social%20Justice%20%26%20Empowerment%29.%0A%0AEligibility%3A%20Students%20currently%20enrolled%20in%20Class%209%2C%2010%2C%2011%2C%2012%20or%20College%0ALast%20Date%3A%2030%20Sep%202026%0A%0ARequired%20Documents%3A%0A-%20Previous%20Academic%20Year%20Marksheet%0A-%20Aadhaar%20Card%20%28Applicant%20%26%20Guardian%29%0A-%20Competent%20Authority%20Income%20Certificate%0A-%20Bank%20Passbook%20%28Applicant%27s%20Aadhaar-seeded%20account%29%0A-%20School%20/%20College%20Bonafide%20Certificate%20%26%20Fee%20Receipt" target="_blank" rel="noopener" class="btn-apply-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Documents on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
 
       <div class="board-note">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
         <span>Looking for an unlisted examination or university form? Visit <strong>BHAT CYBER CAFE</strong> in Kishtwar or message us on WhatsApp with your prospectus.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet Your Digital Consultant & UI Specialist Section -->
+  <section class="consultant-section section-padding" id="consultant">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-badge">LEADERSHIP & DIGITAL PRECISION</span>
+        <h2 class="section-title">Meet Your Digital Consultant & UI Specialist</h2>
+        <p class="section-subtitle">Combining over a decade of e-governance expertise with modern UI/UX design standards to deliver 100% verified, rejection-free online submissions.</p>
+      </div>
+
+      <div class="consultant-grid">
+        <!-- Left: Portrait & Achievement Showcase -->
+        <div class="consultant-media-card">
+          <div class="consultant-image-wrapper">
+            <div class="consultant-glow-backdrop"></div>
+            <div class="consultant-image-frame">
+              <img src="profile.png" alt="Er. Bhat - Lead UI Designer & Digital Consultant at Bhat Cyber Cafe" class="consultant-full-img">
+              <div class="image-gradient-overlay"></div>
+              <div class="consultant-badge-floating top-right">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>Authorized CSC Lead</span>
+              </div>
+              <div class="consultant-badge-floating bottom-left">
+                <span class="exp-number">12+</span>
+                <span class="exp-text">Years of Proven Trust in Kishtwar</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="consultant-quick-contact">
+            <div class="qc-badge">
+              <span class="status-dot pulse"></span>
+              <span>Online for Direct Consultations</span>
+            </div>
+            <a href="https://wa.me/919419145664?text=Hello%20Er.%20Bhat,%20I%20would%20like%20to%20consult%20with%20you%20regarding%20an%20online%20job%20or%20academic%20application." target="_blank" rel="noopener" class="btn btn-consultant-wa">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Direct WhatsApp Consultation</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Story, Credentials & Pillars -->
+        <div class="consultant-info-card">
+          <div class="consultant-title-group">
+            <span class="founder-tag">FOUNDER & PROPRIETOR</span>
+            <h3 class="consultant-name">Er. Bhat</h3>
+            <p class="consultant-designation">Lead UI Designer & Senior E-Governance Consultant</p>
+          </div>
+
+          <p class="consultant-bio">
+            At <strong>BHAT CYBER CAFE</strong>, we believe every government recruitment application represents a candidate's career aspirations. By integrating <strong>engineering precision and modern UI/UX design standards</strong> into our digital facilitation desk, we guarantee that every photograph, signature, quota certificate, and eligibility detail meets portal requirements with zero room for errors or rejections.
+          </p>
+
+          <div class="consultant-highlights-grid">
+            <div class="highlight-item">
+              <div class="h-icon icon-blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="highlight-text-box">
+                <strong>Precision Form Verification</strong>
+                <p>Triple-checked category, domicile, and academic records before final portal submission.</p>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <div class="h-icon icon-indigo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              </div>
+              <div class="highlight-text-box">
+                <strong>UI/UX & Document Craft</strong>
+                <p>Clean resume designs, precise KB image compression, and high-clarity color prints.</p>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <div class="h-icon icon-emerald">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="highlight-text-box">
+                <strong>Authorized CSC Governance</strong>
+                <p>Certified Common Service Center delivering PAN, Aadhaar, and Citizen Certificates.</p>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <div class="h-icon icon-amber">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div class="highlight-text-box">
+                <strong>End-to-End Tracking</strong>
+                <p>Timely WhatsApp updates on admit card releases, exam centers, and result notifications.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="consultant-stats-row">
+            <div class="c-stat">
+              <span class="c-stat-val">10,000+</span>
+              <span class="c-stat-lbl">Applicants Guided</span>
+            </div>
+            <div class="c-stat-divider"></div>
+            <div class="c-stat">
+              <span class="c-stat-val">100%</span>
+              <span class="c-stat-lbl">Verified Submissions</span>
+            </div>
+            <div class="c-stat-divider"></div>
+            <div class="c-stat">
+              <span class="c-stat-val">12+ Yrs</span>
+              <span class="c-stat-lbl">Community Trust</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -591,16 +1270,22 @@
   <div class="floating-whatsapp-container">
     <div class="floating-popup" id="whatsapp-popup">
       <div class="popup-header">
-        <span class="popup-title">BHAT CYBER CAFE Help Desk</span>
+        <div class="popup-avatar-info">
+          <img src="profile.png" alt="Er. Bhat Avatar" class="popup-avatar-img">
+          <div>
+            <span class="popup-title">Er. Bhat</span>
+            <span class="popup-sub"><span class="popup-online-dot"></span> Online • Lead Consultant</span>
+          </div>
+        </div>
         <button id="close-popup-btn" class="close-popup" aria-label="Close popup">&times;</button>
       </div>
       <p class="popup-body">Need assistance with an online form or want to send documents for printing?</p>
-      <a href="https://wa.me/919419145664?text=Hello%20BHAT%20CYBER%20CAFE,%20I%20would%20like%20to%20inquire%20about%20an%20application%20form." target="_blank" class="popup-btn">
+      <a href="https://wa.me/919419145664?text=Hello%20Er.%20Bhat,%20I%20would%20like%20to%20inquire%20about%20an%20application%20form." target="_blank" class="popup-btn">
         Start WhatsApp Inquiry
       </a>
     </div>
 
-    <a href="https://wa.me/919419145664?text=Hello%20BHAT%20CYBER%20CAFE,%20I%20have%20an%20urgent%20application%20inquiry." target="_blank" rel="noopener" class="floating-wa-btn" id="floating-wa" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/919419145664?text=Hello%20Er.%20Bhat,%20I%20have%20an%20urgent%20application%20inquiry." target="_blank" rel="noopener" class="floating-wa-btn" id="floating-wa" aria-label="Chat on WhatsApp">
       <span class="badge-count">1</span>
       <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
@@ -629,6 +1314,6 @@
   <!-- Toast Notification Container -->
   <div id="toast-container" class="toast-container"></div>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=20260903_v5"></script>
 </body>
 </html>
