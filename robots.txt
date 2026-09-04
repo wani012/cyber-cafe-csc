@@ -1,0 +1,8 @@
+# Robots.txt for BHAT CYBER CAFE
+# https://cyber-cafe-csc.vercel.app/
+
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://cyber-cafe-csc.vercel.app/sitemap.xml

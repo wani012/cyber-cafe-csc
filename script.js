@@ -12,7 +12,7 @@ const SHOP_CONFIG = {
   tagline: "Online Forms, CSC & Printing Solutions",
   associatedBusiness: "Bhat Computers & Stationary",
   founderName: "Er. Bhat",
-  founderRole: "Lead UI Designer & Senior Digital Consultant",
+  founderRole: "Lead UI Designer & Professional SEO Specialist",
   whatsappNumber: "919419145664",
   displayPhone: "+91 94191 45664",
   address: "BHAT CYBER CAFE (Bhat Computers & Stationary), Near State Bank of India (SBI), Kishtwar, Jammu & Kashmir - 182204",
