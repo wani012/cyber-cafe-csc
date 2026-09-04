@@ -1,8 +1,29 @@
 # Robots.txt for BHAT CYBER CAFE
+# High-Level Marketing SEO Architecture
 # https://cyber-cafe-csc.vercel.app/
 
 User-agent: *
 Allow: /
+Allow: /profile.png
+Allow: /styles.css
+Allow: /script.js
+Allow: /sitemap.xml
+Allow: /site.webmanifest
 
-# Sitemap Location
+# Dedicated Directives for Major Search Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /profile.png
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Sitemap Index Declaration
 Sitemap: https://cyber-cafe-csc.vercel.app/sitemap.xml
+Host: https://cyber-cafe-csc.vercel.app

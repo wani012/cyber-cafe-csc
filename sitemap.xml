@@ -8,18 +8,24 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://cyber-cafe-csc.vercel.app/profile.png</image:loc>
-      <image:title>Er. Bhat - Lead UI Designer and Professional SEO Specialist at Bhat Cyber Cafe</image:title>
-      <image:caption>Founder and Chief Consultant at Bhat Cyber Cafe Kishtwar</image:caption>
+      <image:title>Er. Bhat - Lead UI Designer & Professional SEO Specialist</image:title>
+      <image:caption>Founder at Bhat Cyber Cafe Kishtwar, Jammu & Kashmir</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://cyber-cafe-csc.vercel.app/#vacancies</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
   <url>
     <loc>https://cyber-cafe-csc.vercel.app/#consultant</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://cyber-cafe-csc.vercel.app/#faq</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -28,13 +34,13 @@
     <loc>https://cyber-cafe-csc.vercel.app/#doc-checklist</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://cyber-cafe-csc.vercel.app/#order</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://cyber-cafe-csc.vercel.app/#services</loc>
@@ -46,6 +52,6 @@
     <loc>https://cyber-cafe-csc.vercel.app/#location</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.70</priority>
   </url>
 </urlset>

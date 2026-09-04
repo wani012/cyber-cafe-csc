@@ -1,0 +1,17 @@
+{
+  "name": "BHAT CYBER CAFE | Digital Center & Recruitment Portal",
+  "short_name": "BhatCyberCafe",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0284c7",
+  "description": "Kishtwars Premier Digital Recruitment Portal & CSC Center led by Er. Bhat.",
+  "icons": [
+    {
+      "src": "profile.png",
+      "sizes": "585x648",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

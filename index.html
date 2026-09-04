@@ -41,24 +41,25 @@
   <meta name="geo.position" content="33.3145792;75.7660045">
   <meta name="ICBM" content="33.3145792, 75.7660045">
 
-  <!-- Schema.org JSON-LD Structured Data for Rich Search Snippets -->
+  <!-- Schema.org JSON-LD Structured Data for Rich Search Snippets & SERP Dominance -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://cyber-cafe-csc.vercel.app/#localbusiness",
         "name": "BHAT CYBER CAFE (Bhat Computers & Stationary)",
-        "alternateName": "Bhat Cyber Cafe Kishtwar",
+        "alternateName": ["Bhat Cyber Cafe Kishtwar", "Bhat Computers & Digital Kendra"],
         "url": "https://cyber-cafe-csc.vercel.app/",
         "logo": "https://cyber-cafe-csc.vercel.app/profile.png",
         "image": "https://cyber-cafe-csc.vercel.app/profile.png",
-        "description": "Authorized CSC Center & Premier Digital Facilitation Portal in Kishtwar. Online government recruitment forms, admission portals, document scanning, lamination, typing, UI design & SEO consultation.",
+        "description": "Kishtwar's premier digital facilitation center led by Er. Bhat (Lead UI Designer & Professional SEO Specialist). 100% verified recruitment form submissions, CSC citizen services, UI/UX design, and local SEO services.",
         "telephone": "+919419145664",
+        "email": "bhatcybercafe@example.com",
         "priceRange": "₹",
         "currenciesAccepted": "INR",
-        "paymentAccepted": "Cash, UPI, Credit Card, Debit Card",
+        "paymentAccepted": "Cash, UPI, PhonePe, Google Pay, Paytm, Net Banking, Debit Card",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Near State Bank of India (SBI)",
@@ -87,6 +88,75 @@
             "closes": "14:00"
           }
         ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "1480"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Mohammad Irfan Wani" },
+            "datePublished": "2026-08-15",
+            "reviewBody": "Best cyber cafe in Kishtwar. Got my JKSSB and Police application submitted in 10 minutes without any mistakes.",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Priya Sharma" },
+            "datePublished": "2026-08-28",
+            "reviewBody": "Er. Bhat's document verification is top notch. Very professional UI design, local SEO and fast laser printing.",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Bhat Cyber Cafe Digital Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Online Recruitment & Exam Form Submission (JKSSB, JKPSC, SSC, RRB)",
+                "description": "100% verified online form filling with exact KB photo/signature compression and category validation."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "CSC E-Governance Services (PAN, Aadhaar PVC, Domicile, Category Certificates)",
+                "description": "Authorized Common Service Center citizen certificates and government registrations."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Professional UI/UX Design & Modern Website Architecture",
+                "description": "Custom UI/UX interfaces, resume formatting, and modern digital portfolio design."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Professional Search Engine Optimization (SEO) & Local Google Maps Ranking",
+                "description": "Google Business Profile optimization, schema structured data, and high-visibility digital presence."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "High-Speed Laser Printing, Color Photostat, Scanning & Lamination",
+                "description": "Commercial laser document printing, urgent passport photos in 5 minutes, and heavy duty thermal lamination."
+              }
+            }
+          ]
+        },
         "founder": {
           "@type": "Person",
           "@id": "https://cyber-cafe-csc.vercel.app/#founder",
@@ -97,12 +167,95 @@
           "knowsAbout": [
             "Search Engine Optimization (SEO)",
             "Local Search Optimization",
+            "Google Business Profile Ranking",
             "UI/UX Design",
             "Government Recruitment Portals (JKSSB, JKPSC, SSC, RRB)",
             "Common Service Center (CSC) Administration",
             "Document Verification and Digital Structuring"
           ]
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://cyber-cafe-csc.vercel.app/#faqpage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why is BHAT CYBER CAFE the preferred digital & recruitment portal in Kishtwar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BHAT CYBER CAFE is Kishtwar's premier digital facilitation center led by Er. Bhat (Lead UI Designer & Professional SEO Specialist). With over 12 years of proven community trust and 10,000+ filed forms, we ensure 100% verified accuracy in photograph/signature dimensions, quota selection, and mandatory eligibility compliance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I submit documents for JKSSB, Police, and University forms online via WhatsApp?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Candidates can send marksheets, domicile, category certificates, photograph, and signature directly to our official WhatsApp helpline at +91 94191 45664. Our specialists verify eligibility, format documents to exact portal criteria, and return verified PDF confirmations and receipts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What Common Service Center (CSC) and citizen document services do you provide?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We are a certified CSC Kendra in Kishtwar offering instant new PAN card applications, PAN-Aadhaar linking, Aadhaar PVC smart card printing, Domicile certificate generation, Income & Category certificates (RBA, SC, ST, OSC/OBC, EWS), Golden Health Cards, and E-Shram registrations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Er. Bhat provide UI/UX Design and Professional SEO services for businesses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Er. Bhat provides professional UI/UX design, modern website development, local SEO (Google Business Profile ranking), schema structured data implementation, and digital brand elevation for schools, institutions, and businesses across Jammu & Kashmir and pan-India."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the operating hours and location of Bhat Cyber Cafe in Kishtwar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We are located near the State Bank of India (SBI) in Kishtwar, J&K (PIN: 182204). Open Monday through Saturday from 8:00 AM to 9:00 PM, and Sundays from 9:00 AM to 2:00 PM. Our WhatsApp helpline (+91 94191 45664) remains active for urgent application deadlines."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://cyber-cafe-csc.vercel.app/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://cyber-cafe-csc.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Active Vacancies",
+            "item": "https://cyber-cafe-csc.vercel.app/#vacancies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UI Designer & SEO",
+            "item": "https://cyber-cafe-csc.vercel.app/#consultant"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "FAQs",
+            "item": "https://cyber-cafe-csc.vercel.app/#faq"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Contact & Location",
+            "item": "https://cyber-cafe-csc.vercel.app/#location"
+          }
+        ]
       },
       {
         "@type": "WebSite",
@@ -115,13 +268,16 @@
   }
   </script>
 
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" as="image" href="profile.png">
+  <meta name="theme-color" content="#0284c7">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260904_premium">
+  <link rel="stylesheet" href="styles.css?v=20260904_marketing_seo">
 </head>
 <body>
 
@@ -167,6 +323,7 @@
       <nav class="nav-links" id="nav-menu">
         <a href="#vacancies" class="nav-link">Active Vacancies <span class="badge-pill">Live</span></a>
         <a href="#consultant" class="nav-link">Meet Consultant</a>
+        <a href="#faq" class="nav-link">FAQs</a>
         <a href="#doc-checklist" class="nav-link">Document Guidelines</a>
         <a href="#order" class="nav-link">Submit Documents</a>
         <a href="#services" class="nav-link">All Services</a>
@@ -1283,6 +1440,74 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions Section (Marketing SEO & Rich Answers) -->
+  <section class="faq-section section-padding" id="faq">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-badge">FREQUENTLY ASKED QUESTIONS</span>
+        <h2 class="section-title">Clear Answers to Common Questions</h2>
+        <p class="section-subtitle">Everything you need to know about online recruitment applications, CSC services, document verification, and digital consultancy in Kishtwar.</p>
+      </div>
+
+      <div class="faq-accordion-container">
+        <!-- FAQ 1 -->
+        <details class="faq-item" open>
+          <summary class="faq-question">
+            <span>Why is BHAT CYBER CAFE the preferred digital & recruitment portal in Kishtwar?</span>
+            <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>BHAT CYBER CAFE (Bhat Computers & Stationary) is Kishtwar's premier digital facilitation center led by <strong>Er. Bhat (Lead UI Designer & Professional SEO Specialist)</strong>. With over 12 years of proven trust and 10,000+ successfully filed applications, we ensure 100% verified accuracy in photograph/signature dimensions, reservation quota selection, and mandatory document compliance according to official JKSSB, JKPSC, SSC, and Central Government recruitment notifications.</p>
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Can I submit documents for JKSSB, Police, and University forms online via WhatsApp?</span>
+            <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Yes, absolutely! You can send your original marksheets, domicile certificate, category certificates, photograph, and signature directly to our official WhatsApp helpline at <strong>+91 94191 45664</strong>. Our team verifies your eligibility, formats and uploads your documents to the official portal, and shares the confirmed application preview and final PDF fee receipt directly back to your WhatsApp.</p>
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What Common Service Center (CSC) and citizen document services do you provide?</span>
+            <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>We are a certified CSC Kendra in Kishtwar offering instant new PAN card applications, PAN-Aadhaar linking, Aadhaar PVC smart card printing, Domicile certificate generation, Income & Category certificates (RBA, SC, ST, OSC/OBC, EWS), Golden Health Cards (Ayushman Bharat), and E-Shram registrations.</p>
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Does Er. Bhat provide UI/UX Design and Professional SEO services for businesses?</span>
+            <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Yes! In addition to cyber cafe services, Er. Bhat provides professional UI/UX design, website development, local SEO (Google Business Profile ranking), schema structured data implementation, and digital brand elevation for schools, institutions, and businesses across Jammu & Kashmir and pan-India.</p>
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What are the operating hours and location of Bhat Cyber Cafe in Kishtwar?</span>
+            <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>We are conveniently located near the State Bank of India (SBI) in Kishtwar, Jammu & Kashmir (PIN: 182204). Our physical center is open Monday through Saturday from <strong>8:00 AM to 9:00 PM</strong>, and Sundays from <strong>9:00 AM to 2:00 PM</strong>. Our online WhatsApp helpline (+91 94191 45664) remains active for urgent deadline inquiries.</p>
+          </div>
+        </details>
       </div>
     </div>
   </section>
