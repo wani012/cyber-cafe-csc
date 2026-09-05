@@ -251,6 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDocumentUploadForm();
   initNavigation();
   initFloatingWhatsApp();
+  initNotificationPopup();
 });
 
 // ==========================================
@@ -601,14 +602,43 @@ function initFloatingWhatsApp() {
   const popup = document.getElementById("whatsapp-popup");
   const closeBtn = document.getElementById("close-popup-btn");
 
-  setTimeout(() => {
-    if (popup) popup.classList.add("active");
-  }, 3500);
-
   if (closeBtn && popup) {
     closeBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       popup.classList.remove("active");
+    });
+  }
+}
+
+// ==========================================
+// 8B. BHAT CAFE BOTTOM-RIGHT NOTIFICATION POP-UP
+// ==========================================
+function initNotificationPopup() {
+  const notifPopup = document.getElementById("bhat-notification-popup");
+  const closeBtn = document.getElementById("bhat-notif-close");
+
+  if (!notifPopup) return;
+
+  // 1. Smoothly slide in from bottom-right after 2 seconds
+  const isClosed = sessionStorage.getItem("bhat_notif_closed");
+  if (!isClosed) {
+    setTimeout(() => {
+      notifPopup.classList.add("show");
+    }, 2000); // 2 seconds
+  }
+
+  // 2. Close when (×) is clicked
+  if (closeBtn) {
+    closeBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      notifPopup.classList.remove("show");
+      notifPopup.classList.add("closing");
+      sessionStorage.setItem("bhat_notif_closed", "true");
+
+      setTimeout(() => {
+        notifPopup.style.display = "none";
+      }, 500);
     });
   }
 }

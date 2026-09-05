@@ -2734,4 +2734,183 @@ img, svg {
   color: var(--neutral-900);
 }
 
+/* ==========================================================================
+   Bhat Cafe - Bottom-Right Notification Pop-up
+   ========================================================================== */
+.bhat-notif-popup {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 350px;
+  max-width: calc(100vw - 36px);
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.25rem 1.25rem 1.15rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16), 0 4px 14px rgba(37, 211, 102, 0.18);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  z-index: 1090;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(120%) scale(0.95);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, visibility 0.5s ease;
+  will-change: transform, opacity;
+}
+
+/* Smooth Slide-in active state */
+.bhat-notif-popup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) scale(1);
+}
+
+/* Smooth Slide-out exit state */
+.bhat-notif-popup.closing {
+  opacity: 0;
+  transform: translateX(120%) scale(0.95);
+}
+
+/* Close Button (×) */
+.bhat-notif-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 1.35rem;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.bhat-notif-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+/* Header */
+.bhat-notif-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.55rem;
+  padding-right: 1.6rem;
+}
+
+.bhat-notif-icon-wrap {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(37, 211, 102, 0.12);
+  color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bhat-notif-online-ping {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  background: #25D366;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  animation: bhat-ping 1.8s infinite;
+}
+
+@keyframes bhat-ping {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.bhat-notif-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Body Text */
+.bhat-notif-text {
+  font-size: 0.88rem;
+  line-height: 1.48;
+  color: #475569;
+  margin: 0 0 0.95rem 0;
+}
+
+/* CTA Button */
+.bhat-notif-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.72rem 1rem;
+  background: #25D366;
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.bhat-notif-btn:hover {
+  background: #20ba59;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+}
+
+.bhat-notif-btn:active {
+  transform: translateY(0);
+}
+
+/* Desktop positioning clearance above floating WhatsApp launcher */
+@media (min-width: 641px) {
+  .floating-whatsapp-container ~ .bhat-notif-popup,
+  .floating-whatsapp-container + .bhat-notif-popup {
+    bottom: 100px;
+    right: 28px;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .bhat-notif-popup {
+    bottom: 75px !important;
+    left: 14px;
+    right: 14px;
+    width: auto;
+    max-width: none;
+    padding: 1.1rem 1rem 1rem;
+    border-radius: 14px;
+  }
+  .bhat-notif-title {
+    font-size: 0.95rem;
+  }
+  .bhat-notif-text {
+    font-size: 0.84rem;
+  }
+}
+
+
 
