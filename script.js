@@ -835,6 +835,10 @@ function initAdminPanel() {
   function showAuth() {
     if (authView) authView.style.display = "block";
     if (dashboardView) dashboardView.style.display = "none";
+    const headerTitle = document.getElementById("admin-modal-title");
+    const userStatus = document.getElementById("admin-user-status");
+    if (headerTitle) headerTitle.textContent = "Admin Portal";
+    if (userStatus) userStatus.textContent = "PIN Verification";
     if (pinInput) {
       pinInput.value = "";
       setTimeout(() => pinInput.focus(), 150);
@@ -844,6 +848,10 @@ function initAdminPanel() {
   function showDashboard() {
     if (authView) authView.style.display = "none";
     if (dashboardView) dashboardView.style.display = "block";
+    const headerTitle = document.getElementById("admin-modal-title");
+    const userStatus = document.getElementById("admin-user-status");
+    if (headerTitle) headerTitle.textContent = "Bhat Cafe — Vacancies Desk";
+    if (userStatus) userStatus.textContent = "Authorized: Baber Bhat";
     renderAdminVacanciesTable();
     loadGSheetSettings();
   }
