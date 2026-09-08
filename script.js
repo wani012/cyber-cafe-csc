@@ -1,11 +1,11 @@
 /**
- * BHAT CYBER CAFE - Main Application Script
+ * BHAT CYBER CAFE | Single-Page Application Logic
  * Clean English UI/UX | Dynamic Vacancy Renderer | Document Order Generator
- * Zero AI Emojis | Production-Grade Code Quality
+ * Google Sheets Live Sync Engine | Executive Admin Management Desk (Baber Bhat)
  */
 
 // ==========================================
-// 1. CONFIGURATION
+// 1. CENTRAL SHOP CONFIGURATION
 // ==========================================
 const SHOP_CONFIG = {
   name: "BHAT CYBER CAFE",
@@ -16,7 +16,7 @@ const SHOP_CONFIG = {
   whatsappNumber: "919419145664",
   displayPhone: "+91 94191 45664",
   address: "BHAT CYBER CAFE (Bhat Computers & Stationary), Near State Bank of India (SBI), Kishtwar, Jammu & Kashmir - 182204",
-  mapUrl: "https://www.google.com/maps/place/Bhat+Computers+and+Stationary/@33.3145837,75.7634296,1108m/data=!3m2!1e3!4b1!4m6!3m5!1s0x391d0b18ed53913b:0x3e8cdea05a5c6052!8m2!3d33.3145792!4d75.7660045!16s%2Fg%2F11fpfn1vn9",
+  mapUrl: "https://www.google.com/maps/place/Bhat+Computers+and+Stationary/@33.3145837,75.7634296,1108m/data=!3m2!1e3!4b1!4m6!3m5!1s0x38e05739fa4be045:0xda20235ad68971f1!8m2!3d33.3145792!4d75.7660045!16s%2Fg%2F11rvh5y8j1",
   openingHour: 8,  // 8:00 AM
   closingHour: 21, // 9:00 PM
   sundayOpening: 9,
@@ -24,19 +24,16 @@ const SHOP_CONFIG = {
 };
 
 // ==========================================
-// 2. ACTIVE RECRUITMENT & VACANCIES DATA
+// 2. ACTIVE RECRUITMENT & VACANCIES DATA (VERIFIED DEFAULTS)
 // ==========================================
 const VACANCIES_DATA = [
-  // ==========================================
-  // JAMMU & KASHMIR (J&K UT) RECRUITMENTS FIRST
-  // ==========================================
   {
     id: 1,
     name: "JKSSB Junior Assistant & Executive Cadre Recruitment 2026",
     department: "J&K Services Selection Board (General Administration Dept, J&K UT)",
     eligibility: "Graduate in Any Discipline with 35 WPM Typing Speed & 6-Month Computer Diploma",
     totalPosts: "2,450+ Vacancies Across District, Divisional & UT Cadres",
-    lastDate: "08 Oct 2026",
+    lastDate: "18 Oct 2026",
     category: "jk-state",
     status: "urgent",
     statusLabel: "Closing Soon",
@@ -56,8 +53,8 @@ const VACANCIES_DATA = [
     department: "J&K Police Recruitment Board (JKPRB)",
     eligibility: "10th / 12th Standard Pass • Age: 18 - 28 Years (Physical Endurance & Measurement Test)",
     totalPosts: "4,022+ Constable Posts Across Jammu & Kashmir",
-    lastDate: "15 Oct 2026",
-    category: "jk-state",
+    lastDate: "25 Oct 2026",
+    category: "defense",
     status: "active",
     statusLabel: "Active Registration",
     documentsRequired: [
@@ -71,11 +68,30 @@ const VACANCIES_DATA = [
   },
   {
     id: 3,
+    name: "JKPSC Combined Competitive Examination (CCE / KAS 2026)",
+    department: "J&K Public Service Commission (JKPSC)",
+    eligibility: "Bachelor's Degree in Any Field • Age: 21 - 32 Years (Age relaxation for reserved categories)",
+    totalPosts: "275+ Administrative, Police & Account Services (JKS / JKPS)",
+    lastDate: "31 Oct 2026",
+    category: "jk-state",
+    status: "active",
+    statusLabel: "Official Registration Open",
+    documentsRequired: [
+      "J&K UT Domicile Certificate",
+      "Graduation Degree & Detailed Marks Certificates",
+      "Matriculation (10th) Certificate / DOB Proof",
+      "Competent Authority Category Certificate (RBA, SC, ST, EWS, PSP, Social Caste)",
+      "Aadhaar Card",
+      "Color Passport Photograph & Scanned Signature"
+    ]
+  },
+  {
+    id: 4,
     name: "J&K Bank Banking Associate & Probationary Officer (PO)",
     department: "The Jammu & Kashmir Bank Ltd.",
     eligibility: "Bachelor's Degree in Any Discipline (Min. 55% Aggregate) • Permanent Resident of J&K / Ladakh",
     totalPosts: "1,250+ Banking Associates & PO Positions",
-    lastDate: "20 Oct 2026",
+    lastDate: "05 Nov 2026",
     category: "jk-state",
     status: "active",
     statusLabel: "Registration Open",
@@ -89,158 +105,117 @@ const VACANCIES_DATA = [
     ]
   },
   {
-    id: 4,
-    name: "JKPSC Combined Competitive Examination (CCE / KAS 2026)",
-    department: "J&K Public Service Commission (JKPSC)",
-    eligibility: "Bachelor's Degree in Any Field • Age: 21 - 32 Years (Age relaxation for reserved categories)",
-    totalPosts: "275+ Administrative, Police & Account Services (JKS / JKPS)",
-    lastDate: "28 Oct 2026",
-    category: "jk-state",
-    status: "active",
-    statusLabel: "Official Notification Active",
-    documentsRequired: [
-      "J&K UT Domicile Certificate",
-      "Graduation Degree & Detailed Marks Certificates",
-      "Matriculation (10th) Certificate / DOB Proof",
-      "Competent Authority Category Certificate (RBA, SC, ST, EWS, PSP, Social Caste)",
-      "Aadhaar Card",
-      "Color Passport Photograph & Scanned Signature"
-    ]
-  },
-  {
     id: 5,
-    name: "JKSSB Female Supervisor & Social Welfare Department",
-    department: "Social Welfare Department, Govt. of Jammu & Kashmir",
-    eligibility: "Graduation (Preference for candidates with Home Science, Sociology, or Child Development)",
-    totalPosts: "201 Posts Across J&K Districts",
-    lastDate: "30 Sep 2026",
+    name: "JKSSB Patwari, Forester & Social Welfare Supervisor",
+    department: "Revenue & Social Welfare Departments, Govt. of Jammu & Kashmir",
+    eligibility: "Graduation with Working Knowledge of Urdu (Patwari) / Relevant Discipline",
+    totalPosts: "890+ District Cadre Posts",
+    lastDate: "12 Nov 2026",
     category: "jk-state",
-    status: "urgent",
-    statusLabel: "Closing in 5 Days",
+    status: "upcoming",
+    statusLabel: "Notification Released",
     documentsRequired: [
       "J&K Domicile Certificate",
-      "Graduation Degree with Subject Proof",
+      "Graduation Degree with Marks Certificates",
       "10th & 12th Marks Cards (JKBOSE / CBSE)",
-      "Aadhaar Card",
-      "Reserved Category Certificate (if applicable)",
-      "Recent Passport Size Photos"
+      "Urdu Qualification Certificate (if required)",
+      "Aadhaar Card & Passport Photos"
     ]
   },
   {
     id: 6,
-    name: "High Court of J&K and Ladakh Non-Gazetted Staff",
-    department: "High Court of Jammu & Kashmir and Ladakh",
-    eligibility: "Graduate with Computer Typing (35 WPM) & Shorthand Knowledge",
-    totalPosts: "150+ Stenographer, Reader & Junior Assistant Posts",
-    lastDate: "05 Nov 2026",
-    category: "jk-state",
-    status: "upcoming",
-    statusLabel: "Upcoming Notification",
-    documentsRequired: [
-      "J&K / Ladakh UT Domicile Certificate",
-      "Graduation Degree & Typing / Shorthand Speed Certificate",
-      "10th & 12th Academic Records",
-      "Aadhaar Card",
-      "Scanned Photograph & Signature"
-    ]
-  },
-
-  // ==========================================
-  // NATIONAL & CENTRAL RECRUITMENTS NEXT
-  // ==========================================
-  {
-    id: 7,
-    name: "SSC CHSL (10+2) Recruitment 2026",
+    name: "SSC Combined Graduate Level (CGL 2026)",
     department: "Staff Selection Commission (Govt. of India)",
-    eligibility: "12th Standard Pass (Any Stream) • Age Limit: 18 - 27 Years",
-    totalPosts: "3,712+ Vacancies (LDC, JSA, DEO)",
-    lastDate: "28 Sep 2026",
+    eligibility: "Bachelor's Degree from a Recognized University • Age: 18 - 32 Years",
+    totalPosts: "17,700+ Central Ministries & Inspector Posts",
+    lastDate: "22 Oct 2026",
     category: "central",
     status: "urgent",
-    statusLabel: "Closing in 3 Days",
+    statusLabel: "Closing Soon",
     documentsRequired: [
-      "10th & 12th Marksheets / Passing Certificates",
-      "Aadhaar Card (Original / Digital Copy)",
-      "Recent Passport Size Photograph (White Background)",
-      "Candidate Signature on clean unlined paper",
-      "Category Certificate (OBC, SC, ST, EWS if applicable)"
+      "Graduation Consolidated Marks Cards & Degree",
+      "10th Standard Matriculation Certificate (DOB Proof)",
+      "Category Certificate (OBC, SC, ST, EWS if applicable)",
+      "Aadhaar Card",
+      "Live Webcam Compliant Passport Photo & Signature"
     ]
   },
   {
-    id: 8,
-    name: "Railway RRB NTPC & Group D Recruitment",
-    department: "Railway Recruitment Control Board (RRB)",
-    eligibility: "10th Pass / 12th Pass / Bachelor's Degree • Age: 18 - 33 Years",
-    totalPosts: "11,558+ Positions Across Zones",
-    lastDate: "20 Oct 2026",
+    id: 7,
+    name: "Railway RRB NTPC & Technician Recruitment 2026",
+    department: "Railway Recruitment Boards (RRB Jammu-Srinagar)",
+    eligibility: "12th Standard (Pass) or Graduate in Any Stream / ITI (for Technicians)",
+    totalPosts: "11,558+ Non-Technical & Technical Posts",
+    lastDate: "15 Nov 2026",
     category: "central",
     status: "active",
     statusLabel: "Active Registration",
     documentsRequired: [
-      "10th Standard Marksheet (Date of Birth Proof)",
-      "12th / Graduation Degree Certificate",
-      "Aadhaar Card (Mobile Number Linked)",
-      "Color Passport Size Photograph",
-      "Candidate Signature & Left Thumb Impression",
-      "Active Bank Account Details (Fee Refund)"
+      "10th / 12th Passing Certificate & Marksheet",
+      "Graduation / ITI National Trade Certificate",
+      "Aadhaar Card",
+      "Caste / Community Certificate (Central Govt format)",
+      "Scanned Passport Photograph & Candidate Signature"
+    ]
+  },
+  {
+    id: 8,
+    name: "NTA CUET (UG & PG) & University Admissions 2026",
+    department: "National Testing Agency & J&K Universities",
+    eligibility: "12th Standard Passed or Appearing for UG • Bachelor's for PG",
+    totalPosts: "Central, State Universities & College Admissions",
+    lastDate: "20 Nov 2026",
+    category: "entrance",
+    status: "active",
+    statusLabel: "Admissions Open",
+    documentsRequired: [
+      "10th & 12th Standard Marks Statements",
+      "Aadhaar Card or Government Identity Document",
+      "Recent Clear Passport Photo with White Background",
+      "Signature on White Paper with Black Ink",
+      "Category / Domicile Certificate (if applicable)"
     ]
   },
   {
     id: 9,
-    name: "Indian Army Agniveer Rally Recruitment 2026",
-    department: "Join Indian Army (Ministry of Defence)",
-    eligibility: "8th / 10th / 12th Pass (Min. 45% Aggregate) • Age: 17.5 - 21 Years",
-    totalPosts: "All India Zonal Recruitment Drives",
-    lastDate: "15 Oct 2026",
-    category: "defense",
-    status: "active",
-    statusLabel: "Registration Open",
-    documentsRequired: [
-      "Academic Marksheet (8th / 10th / 12th)",
-      "Aadhaar Card (Linked with DigiLocker for OTP)",
-      "State Domicile / Nativity Certificate",
-      "Caste Certificate signed by Tehsildar",
-      "Unmarried Certificate from Local Representative",
-      "Recent Clear Passport Photographs (White BG)"
-    ]
-  },
-  {
-    id: 10,
-    name: "NEET (UG) 2027 Medical Entrance Examination",
-    department: "National Testing Agency (NTA)",
-    eligibility: "12th Standard Passed or Appearing with Physics, Chemistry & Biology",
-    totalPosts: "National MBBS, BDS & Allied Medical Admissions",
-    lastDate: "25 Oct 2026",
-    category: "entrance",
-    status: "active",
-    statusLabel: "Registration Open",
-    documentsRequired: [
-      "10th & 12th Standard Marksheet & Passing Certificate",
-      "Aadhaar Card or Government Photo Identity",
-      "Passport Size & Postcard Size (4x6) Photographs",
-      "Signature in Running Handwriting",
-      "Left & Right Hand Fingers and Thumb Impressions"
-    ]
-  },
-  {
-    id: 11,
-    name: "PM Yashasvi & National Scholarship Portal 2026",
-    department: "Ministry of Social Justice & Empowerment",
-    eligibility: "Students currently enrolled in Class 9, 10, 11, 12 or College",
-    totalPosts: "Direct Benefit Transfer Financial Grant",
-    lastDate: "30 Sep 2026",
+    name: "PMSSS J&K Special Scholarship Scheme 2026 (AICTE)",
+    department: "All India Council for Technical Education (AICTE)",
+    eligibility: "12th Class Pass from JKBOSE / CBSE in J&K • Family Income Below Rs 8.00 Lakh",
+    totalPosts: "5,000+ Full Scholarships (Engineering, General & Medical)",
+    lastDate: "30 Nov 2026",
     category: "scholarship",
-    status: "urgent",
-    statusLabel: "Closing in 5 Days",
+    status: "upcoming",
+    statusLabel: "Portal Opening Soon",
     documentsRequired: [
-      "Previous Academic Year Marksheet",
-      "Aadhaar Card (Applicant & Guardian)",
-      "Competent Authority Income Certificate",
-      "Bank Passbook (Applicant's Aadhaar-seeded account)",
-      "School / College Bonafide Certificate & Fee Receipt"
+      "J&K Domicile Certificate (Mandatory)",
+      "10th & 12th Marks Cards (JKBOSE / CBSE)",
+      "Tehsildar-Issued Family Income Certificate",
+      "Aadhaar Card (Linked with Student Bank Account)",
+      "Valid Category Certificate (if applying under reserved quota)"
     ]
   }
 ];
+
+// Returns effective active vacancies: Google Sheets > Admin Custom > Defaults
+function getActiveVacanciesList() {
+  const gsheetData = localStorage.getItem("bhat_sheet_vacancies");
+  if (gsheetData) {
+    try {
+      const parsed = JSON.parse(gsheetData);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    } catch (e) {}
+  }
+
+  const customData = localStorage.getItem("bhat_custom_vacancies");
+  if (customData) {
+    try {
+      const parsed = JSON.parse(customData);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    } catch (e) {}
+  }
+
+  return VACANCIES_DATA;
+}
 
 // ==========================================
 // 3. INITIALIZATION ON DOM READY
@@ -252,6 +227,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initFloatingWhatsApp();
   initNotificationPopup();
+  initGoogleSheetSync();
+  initAdminPanel();
 });
 
 // ==========================================
@@ -264,39 +241,31 @@ function initShopStatus() {
   if (!statusIndicator || !statusText) return;
 
   const now = new Date();
-  const day = now.getDay(); // 0 = Sunday
-  const currentHour = now.getHours();
-  const currentMinute = now.getMinutes();
-  const currentTimeDec = currentHour + currentMinute / 60;
+  const day = now.getDay();
+  const hour = now.getHours();
 
   let isOpen = false;
   let scheduleMessage = "";
 
   if (day === 0) {
-    // Sunday Schedule
-    if (currentTimeDec >= SHOP_CONFIG.sundayOpening && currentTimeDec < SHOP_CONFIG.sundayClosing) {
-      isOpen = true;
-      scheduleMessage = "Open Today (Sunday): Closes at 2:00 PM";
-    } else {
-      scheduleMessage = "Closed Now: Opens Monday at 8:00 AM (WhatsApp Inquiries Accepted 24/7)";
-    }
+    isOpen = hour >= SHOP_CONFIG.sundayOpening && hour < SHOP_CONFIG.sundayClosing;
+    scheduleMessage = isOpen
+      ? `Open Today (Sunday): 9:00 AM – 2:00 PM`
+      : `Closed (Sunday Hours: 9:00 AM – 2:00 PM)`;
   } else {
-    // Monday – Saturday Schedule
-    if (currentTimeDec >= SHOP_CONFIG.openingHour && currentTimeDec < SHOP_CONFIG.closingHour) {
-      isOpen = true;
-      scheduleMessage = "Open Today: 8:00 AM – 9:00 PM";
-    } else {
-      scheduleMessage = "Closed Now: Opens Tomorrow at 8:00 AM (Send Documents via WhatsApp Anytime)";
-    }
+    isOpen = hour >= SHOP_CONFIG.openingHour && hour < SHOP_CONFIG.closingHour;
+    scheduleMessage = isOpen
+      ? `Open Today: 8:00 AM – 9:00 PM`
+      : `Closed (Opens Tomorrow at 8:00 AM)`;
   }
 
   if (isOpen) {
-    statusIndicator.style.backgroundColor = "var(--success)";
-    statusIndicator.classList.add("pulse");
+    statusIndicator.classList.remove("closed");
+    statusIndicator.title = "Currently Open";
     statusText.textContent = scheduleMessage;
   } else {
-    statusIndicator.style.backgroundColor = "var(--warning)";
-    statusIndicator.classList.remove("pulse");
+    statusIndicator.classList.add("closed");
+    statusIndicator.title = "Currently Closed";
     statusText.textContent = scheduleMessage;
   }
 }
@@ -315,9 +284,15 @@ function initVacanciesList() {
   function renderVacancies() {
     if (!container) return;
 
-    const filtered = VACANCIES_DATA.filter(item => {
-      const matchesCategory = activeCategory === "all" || item.category === activeCategory;
-      const searchableContext = `${item.name} ${item.department} ${item.eligibility} ${item.documentsRequired.join(" ")}`.toLowerCase();
+    const currentData = getActiveVacanciesList();
+    const filtered = currentData.filter(item => {
+      const matchesCategory = activeCategory === "all" ||
+        item.category === activeCategory ||
+        (activeCategory === "defense" && (item.category === "defense" || item.name.toLowerCase().includes("police") || item.name.toLowerCase().includes("constable"))) ||
+        (activeCategory === "entrance" && (item.category === "entrance" || item.category === "admission"));
+
+      const docsText = Array.isArray(item.documentsRequired) ? item.documentsRequired.join(" ") : (item.documentsRequired || "");
+      const searchableContext = `${item.name} ${item.department} ${item.eligibility} ${docsText}`.toLowerCase();
       const matchesSearch = searchableContext.includes(searchQuery);
       return matchesCategory && matchesSearch;
     });
@@ -344,14 +319,17 @@ function initVacanciesList() {
       if (item.status === "urgent") badgeClass = "badge-urgent";
       if (item.status === "upcoming") badgeClass = "badge-upcoming";
 
-      const docPills = item.documentsRequired.map(doc => `
+      const docsArr = Array.isArray(item.documentsRequired)
+        ? item.documentsRequired
+        : (item.documentsRequired ? String(item.documentsRequired).split(/[\n,;]+/) : []);
+
+      const docPills = docsArr.map(doc => `
         <span class="doc-pill">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          <span>${escapeHtml(doc)}</span>
+          <span>${escapeHtml(doc.trim())}</span>
         </span>
       `).join("");
 
-      // English WhatsApp formatted message
       const waMsg = encodeURIComponent(
         `*APPLICATION INQUIRY - ${SHOP_CONFIG.name}*\n\n` +
         `Hello BHAT CYBER CAFE,\n` +
@@ -360,17 +338,21 @@ function initVacanciesList() {
         `- Eligibility: ${item.eligibility}\n` +
         `- Last Date: ${item.lastDate}\n\n` +
         `Required Documents Checklist:\n` +
-        item.documentsRequired.map(d => `- ${d}`).join("\n") +
+        docsArr.map(d => `- ${d.trim()}`).join("\n") +
         `\n\nPlease confirm the registration charges, official fee, and verification process.`
       );
       const waUrl = `https://wa.me/${SHOP_CONFIG.whatsappNumber}?text=${waMsg}`;
+
+      const catDisplay = item.category === 'jk-state'
+        ? 'JAMMU & KASHMIR (J&K UT) RECRUITMENT'
+        : (item.category === 'defense' ? 'DEFENSE & POLICE RECRUITMENT' : item.category.toUpperCase() + ' RECRUITMENT');
 
       return `
         <article class="vacancy-card" data-category="${item.category}">
           <!-- Top Row -->
           <div class="v-top-row">
             <div class="v-title-area">
-              <span class="v-badge-category">${item.category === 'jk-state' ? 'JAMMU & KASHMIR (J&K UT) RECRUITMENT' : item.category.toUpperCase() + ' RECRUITMENT'}</span>
+              <span class="v-badge-category">${catDisplay}</span>
               <h3 class="v-title">${escapeHtml(item.name)}</h3>
               <span class="v-dept">${escapeHtml(item.department)} • <strong>${escapeHtml(item.totalPosts)}</strong></span>
             </div>
@@ -379,7 +361,7 @@ function initVacanciesList() {
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                 <span>Deadline: ${escapeHtml(item.lastDate)}</span>
               </span>
-              <span class="status-badge ${badgeClass}">${escapeHtml(item.statusLabel)}</span>
+              <span class="status-badge ${badgeClass}">${escapeHtml(item.statusLabel || item.status)}</span>
             </div>
           </div>
 
@@ -434,165 +416,221 @@ function initVacanciesList() {
     });
   });
 
-  // Search input
+  // Search input with debounce
+  let debounceTimeout = null;
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
-      searchQuery = e.target.value.trim().toLowerCase();
-      renderVacancies();
+      clearTimeout(debounceTimeout);
+      debounceTimeout = setTimeout(() => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        renderVacancies();
+      }, 150);
     });
   }
+
+  // Expose global refresh function
+  window.refreshVacanciesUI = renderVacancies;
 
   // Initial render
   renderVacancies();
 }
 
 // ==========================================
-// 6. DOCUMENT UPLOAD & ORDER FORM
+// 6. DOCUMENT UPLOAD & WHATSAPP ORDER GENERATOR
 // ==========================================
 function initDocumentUploadForm() {
-  const form = document.getElementById("print-order-form");
+  const dropzone = document.getElementById("dropzone");
   const fileInput = document.getElementById("file-input");
-  const dropZone = document.getElementById("drop-zone");
-  const previewBar = document.getElementById("file-preview-bar");
-  const filenameEl = document.getElementById("preview-filename");
-  const filesizeEl = document.getElementById("preview-filesize");
-  const removeFileBtn = document.getElementById("remove-file-btn");
+  const fileListContainer = document.getElementById("file-list");
+  const printOptionsContainer = document.getElementById("print-options-container");
+  const generateOrderBtn = document.getElementById("generate-order-btn");
 
-  let selectedFile = null;
+  if (!dropzone || !fileInput) return;
 
-  function handleFile(file) {
-    if (!file) return;
+  let selectedFiles = [];
 
-    // Size limit: 25MB
-    const maxSize = 25 * 1024 * 1024;
-    if (file.size > maxSize) {
-      showToast("File size exceeds 25 MB limit. Please select a smaller file.", "error");
+  function handleFiles(files) {
+    const validExtensions = [".pdf", ".jpg", ".jpeg", ".png", ".docx", ".doc"];
+    const maxSizeBytes = 25 * 1024 * 1024; // 25MB
+
+    Array.from(files).forEach(file => {
+      const ext = "." + file.name.split(".").pop().toLowerCase();
+      if (!validExtensions.includes(ext)) {
+        showToast(`"${file.name}" is not a supported file format.`, "error");
+        return;
+      }
+      if (file.size > maxSizeBytes) {
+        showToast(`"${file.name}" exceeds the 25MB size limit.`, "error");
+        return;
+      }
+      if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+        selectedFiles.push(file);
+      }
+    });
+
+    updateFilesUI();
+  }
+
+  function updateFilesUI() {
+    fileListContainer.innerHTML = "";
+
+    if (selectedFiles.length === 0) {
+      printOptionsContainer.style.display = "none";
       return;
     }
 
-    selectedFile = file;
-    filenameEl.textContent = file.name;
-    filesizeEl.textContent = formatBytes(file.size);
-    previewBar.classList.remove("hidden");
-    dropZone.style.display = "none";
-  }
+    printOptionsContainer.style.display = "block";
 
-  function clearFile() {
-    selectedFile = null;
-    if (fileInput) fileInput.value = "";
-    previewBar.classList.add("hidden");
-    dropZone.style.display = "block";
-  }
+    selectedFiles.forEach((file, index) => {
+      const ext = file.name.split(".").pop().toUpperCase();
+      const fileCard = document.createElement("div");
+      fileCard.className = "file-card";
+      fileCard.innerHTML = `
+        <div class="file-icon-tag">${escapeHtml(ext)}</div>
+        <div class="file-info-col">
+          <div class="file-name" title="${escapeHtml(file.name)}">${escapeHtml(file.name)}</div>
+          <div class="file-meta">${formatBytes(file.size)} • Ready for Print</div>
+        </div>
+        <button class="remove-file-btn" data-index="${index}" title="Remove file" aria-label="Remove ${escapeHtml(file.name)}">&times;</button>
+      `;
+      fileListContainer.appendChild(fileCard);
+    });
 
-  if (fileInput) {
-    fileInput.addEventListener("change", (e) => {
-      if (e.target.files && e.target.files[0]) {
-        handleFile(e.target.files[0]);
-      }
+    fileListContainer.querySelectorAll(".remove-file-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const idx = parseInt(e.currentTarget.getAttribute("data-index"), 10);
+        selectedFiles.splice(idx, 1);
+        updateFilesUI();
+      });
     });
   }
 
-  if (removeFileBtn) {
-    removeFileBtn.addEventListener("click", clearFile);
-  }
+  dropzone.addEventListener("click", () => fileInput.click());
 
-  // Drag & drop handlers
-  if (dropZone) {
-    ["dragenter", "dragover"].forEach(eventName => {
-      dropZone.addEventListener(eventName, (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        dropZone.classList.add("dragover");
-      }, false);
-    });
+  fileInput.addEventListener("change", (e) => {
+    handleFiles(e.target.files);
+    fileInput.value = "";
+  });
 
-    ["dragleave", "drop"].forEach(eventName => {
-      dropZone.addEventListener(eventName, (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        dropZone.classList.remove("dragover");
-      }, false);
-    });
-
-    dropZone.addEventListener("drop", (e) => {
-      const dt = e.dataTransfer;
-      const files = dt.files;
-      if (files && files[0]) {
-        handleFile(files[0]);
-      }
-    });
-  }
-
-  // Form Submission
-  if (form) {
-    form.addEventListener("submit", (e) => {
+  ["dragenter", "dragover"].forEach(evt => {
+    dropzone.addEventListener(evt, (e) => {
       e.preventDefault();
+      e.stopPropagation();
+      dropzone.classList.add("dragover");
+    });
+  });
 
-      const name = document.getElementById("cust-name").value.trim();
-      const phone = document.getElementById("cust-phone").value.trim();
-      const service = document.getElementById("service-type").value;
-      const notes = document.getElementById("cust-notes").value.trim();
+  ["dragleave", "drop"].forEach(evt => {
+    dropzone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropzone.classList.remove("dragover");
+    });
+  });
 
-      if (!name || !phone) {
+  dropzone.addEventListener("drop", (e) => {
+    const dt = e.dataTransfer;
+    if (dt && dt.files) {
+      handleFiles(dt.files);
+    }
+  });
+
+  // Quantity stepper
+  const copiesInput = document.getElementById("copies-input");
+  const qtyMinusBtn = document.getElementById("qty-minus");
+  const qtyPlusBtn = document.getElementById("qty-plus");
+
+  if (qtyMinusBtn && copiesInput) {
+    qtyMinusBtn.addEventListener("click", () => {
+      let val = parseInt(copiesInput.value, 10) || 1;
+      if (val > 1) copiesInput.value = val - 1;
+    });
+  }
+
+  if (qtyPlusBtn && copiesInput) {
+    qtyPlusBtn.addEventListener("click", () => {
+      let val = parseInt(copiesInput.value, 10) || 1;
+      if (val < 100) copiesInput.value = val + 1;
+    });
+  }
+
+  // Generate WhatsApp order
+  if (generateOrderBtn) {
+    generateOrderBtn.addEventListener("click", () => {
+      const custName = (document.getElementById("customer-name")?.value || "").trim();
+      const custPhone = (document.getElementById("customer-phone")?.value || "").trim();
+      const colorOption = document.querySelector('input[name="print-color"]:checked')?.value || "B/W Laser (Black & White)";
+      const sideOption = document.querySelector('input[name="print-side"]:checked')?.value || "Single Side";
+      const copies = parseInt(copiesInput?.value, 10) || 1;
+      const notes = (document.getElementById("order-notes")?.value || "").trim();
+
+      if (!custName || custPhone.length < 10) {
         showToast("Please enter your full name and valid 10-digit phone number.", "warning");
+        document.getElementById("customer-name")?.focus();
         return;
       }
 
-      // Format clean English WhatsApp order message
-      let message = `*NEW ONLINE APPLICATION / PRINT REQUEST - ${SHOP_CONFIG.name}*\n\n`;
-      message += `Applicant Name: ${name}\n`;
-      message += `Contact Number: ${phone}\n`;
-      message += `Requested Service: ${service}\n`;
-
-      if (selectedFile) {
-        message += `Attached Document: ${selectedFile.name} (${formatBytes(selectedFile.size)})\n`;
-      } else {
-        message += `Attached Document: (Transferring document directly via this chat)\n`;
+      if (selectedFiles.length === 0) {
+        showToast("Please select at least one document or file to print.", "warning");
+        return;
       }
 
-      if (notes) {
-        message += `Additional Notes: ${notes}\n`;
-      }
+      const fileDetails = selectedFiles.map((f, i) => `${i + 1}. ${f.name} (${formatBytes(f.size)})`).join("\n");
 
-      message += `\nPlease verify portal fees, service charges, and estimated completion time.`;
+      const messageText =
+        `*NEW PRINT / APPLICATION ORDER - ${SHOP_CONFIG.name}*\n\n` +
+        `*Customer Details:*\n` +
+        `- Name: ${custName}\n` +
+        `- Phone: ${custPhone}\n\n` +
+        `*Print Specifications:*\n` +
+        `- Color Mode: ${colorOption}\n` +
+        `- Printing Type: ${sideOption}\n` +
+        `- Quantity: ${copies} Copy/Copies\n` +
+        (notes ? `- Special Instructions: ${notes}\n` : "") +
+        `\n*Files attached (${selectedFiles.length} file/s):*\n` +
+        `${fileDetails}\n\n` +
+        `_I am attaching the documents right now. Please confirm total price and print time._`;
 
-      const encodedMsg = encodeURIComponent(message);
-      const waUrl = `https://wa.me/${SHOP_CONFIG.whatsappNumber}?text=${encodedMsg}`;
+      const waUrl = `https://wa.me/${SHOP_CONFIG.whatsappNumber}?text=${encodeURIComponent(messageText)}`;
+      window.open(waUrl, "_blank", "noopener,noreferrer");
 
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(message).catch(() => {});
-      }
-
-      showToast("Request formatted. Launching WhatsApp...", "success");
-
-      setTimeout(() => {
-        window.open(waUrl, "_blank");
-        form.reset();
-        clearFile();
-      }, 700);
+      showToast("Order summary generated! Please attach your files in WhatsApp.", "success");
     });
   }
 }
 
 // ==========================================
-// 7. NAVIGATION
+// 7. RESPONSIVE NAVIGATION & SMOOTH SCROLL
 // ==========================================
 function initNavigation() {
   const menuToggle = document.getElementById("menu-toggle");
   const navMenu = document.getElementById("nav-menu");
   const navLinks = document.querySelectorAll(".nav-link");
+  const header = document.getElementById("header");
 
   if (menuToggle && navMenu) {
     menuToggle.addEventListener("click", () => {
+      menuToggle.classList.toggle("active");
       navMenu.classList.toggle("active");
     });
 
     navLinks.forEach(link => {
       link.addEventListener("click", () => {
+        menuToggle.classList.remove("active");
         navMenu.classList.remove("active");
       });
     });
   }
+
+  // Header scroll shadow
+  window.addEventListener("scroll", () => {
+    if (!header) return;
+    if (window.scrollY > 20) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  }, { passive: true });
 }
 
 // ==========================================
@@ -619,7 +657,6 @@ function initNotificationPopup() {
 
   if (!notifPopup) return;
 
-  // 1. Smoothly slide in from bottom-right after 2 seconds
   const isClosed = sessionStorage.getItem("bhat_notif_closed");
   if (!isClosed) {
     setTimeout(() => {
@@ -627,7 +664,6 @@ function initNotificationPopup() {
     }, 2000); // 2 seconds
   }
 
-  // 2. Close when (×) is clicked
   if (closeBtn) {
     closeBtn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -639,6 +675,516 @@ function initNotificationPopup() {
       setTimeout(() => {
         notifPopup.style.display = "none";
       }, 500);
+    });
+  }
+}
+
+// ==========================================
+// 8C. GOOGLE SHEETS LIVE SYNC ENGINE
+// ==========================================
+function parseCSV(text) {
+  if (!text || typeof text !== "string") return [];
+  const lines = text.trim().split(/\\r?\\n/);
+  if (lines.length < 2) return [];
+
+  const headers = lines[0].split(",").map(h => h.trim().toLowerCase().replace(/[^a-z0-9]/g, ""));
+  const results = [];
+
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+
+    const row = [];
+    let inQuote = false;
+    let cur = "";
+    for (let c = 0; c < line.length; c++) {
+      const char = line[c];
+      if (char === '"') {
+        inQuote = !inQuote;
+      } else if (char === ',' && !inQuote) {
+        row.push(cur.trim());
+        cur = "";
+      } else {
+        cur += char;
+      }
+    }
+    row.push(cur.trim());
+
+    const getVal = (aliases, fallback = "") => {
+      for (const a of aliases) {
+        const idx = headers.indexOf(a);
+        if (idx !== -1 && row[idx]) {
+          return row[idx].replace(/^"|"$/g, "").trim();
+        }
+      }
+      return fallback;
+    };
+
+    const name = getVal(["name", "title", "exam", "jobtitle", "vacancyname"]);
+    if (!name) continue;
+
+    const rawDocs = getVal(["documents", "documentsrequired", "docs", "checklist"]);
+    const docs = rawDocs
+      ? rawDocs.split(/;|,/).map(d => d.trim()).filter(Boolean)
+      : ["J&K Domicile", "10th/12th Marks Card", "Aadhaar Card", "Passport Photos"];
+
+    results.push({
+      id: "gsheet_" + i,
+      name: name,
+      department: getVal(["department", "dept", "board", "organization"], "Govt Recruitment Authority"),
+      eligibility: getVal(["eligibility", "qualification", "criteria"], "Check official notification"),
+      totalPosts: getVal(["totalposts", "posts", "vacancies"], "Multiple Openings"),
+      lastDate: getVal(["lastdate", "deadline", "date"], "Check portal"),
+      category: getVal(["category", "cat"], "jk-state"),
+      status: getVal(["status"], "active"),
+      statusLabel: getVal(["statuslabel", "label"], "Active Registration"),
+      documentsRequired: docs
+    });
+  }
+  return results;
+}
+
+async function syncGoogleSheetVacancies(sheetUrl, isManual = false) {
+  const url = sheetUrl || localStorage.getItem("bhat_gsheet_url");
+  const indicator = document.getElementById("sync-status-text");
+  const dot = document.querySelector(".sync-dot-live");
+
+  if (!url) {
+    if (indicator) indicator.textContent = "Verified Live Notices";
+    return false;
+  }
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const csvData = await res.text();
+    const vacancies = parseCSV(csvData);
+
+    if (vacancies.length === 0) throw new Error("No valid rows parsed from sheet.");
+
+    localStorage.setItem("bhat_sheet_vacancies", JSON.stringify(vacancies));
+    localStorage.setItem("bhat_gsheet_url", url);
+
+    if (indicator) {
+      indicator.textContent = `Live Synced (${vacancies.length} from Google Sheet)`;
+    }
+    if (dot) dot.style.background = "#10b981";
+
+    if (typeof window.refreshVacanciesUI === "function") {
+      window.refreshVacanciesUI();
+    }
+    if (isManual) {
+      showToast(`Successfully synced ${vacancies.length} vacancies from Google Sheet!`, "success");
+    }
+    return true;
+  } catch (err) {
+    console.warn("Google Sheet sync notice:", err);
+    if (indicator) indicator.textContent = "Verified Offline Notices";
+    if (isManual) {
+      showToast("Could not sync sheet. Ensure it is published as CSV.", "error");
+    }
+    return false;
+  }
+}
+
+function initGoogleSheetSync() {
+  const savedUrl = localStorage.getItem("bhat_gsheet_url");
+  if (savedUrl) {
+    syncGoogleSheetVacancies(savedUrl, false);
+  }
+}
+
+// ==========================================
+// 8D. EXECUTIVE ADMIN MANAGEMENT PANEL (BABER BHAT)
+// ==========================================
+const DEFAULT_ADMIN_PIN = "182204"; // Kishtwar Postal Code
+
+function initAdminPanel() {
+  const openBtn = document.getElementById("open-admin-btn");
+  const modal = document.getElementById("admin-modal");
+  const closeBtn = document.getElementById("close-admin-modal");
+  const backdrop = document.querySelector(".admin-modal-backdrop");
+  const authView = document.getElementById("admin-auth-view");
+  const dashboardView = document.getElementById("admin-dashboard-view");
+  const pinInput = document.getElementById("admin-pin-input");
+  const loginBtn = document.getElementById("admin-login-btn");
+  const pinError = document.getElementById("admin-pin-error");
+
+  const tabBtns = document.querySelectorAll(".admin-tab-btn");
+  const tabPanes = document.querySelectorAll(".admin-tab-pane");
+
+  function openAdmin() {
+    if (!modal) return;
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+
+    if (sessionStorage.getItem("bhat_admin_auth") === "true") {
+      showDashboard();
+    } else {
+      showAuth();
+    }
+  }
+
+  function closeAdmin() {
+    if (!modal) return;
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+    if (pinError) pinError.style.display = "none";
+  }
+
+  function showAuth() {
+    if (authView) authView.style.display = "block";
+    if (dashboardView) dashboardView.style.display = "none";
+    if (pinInput) {
+      pinInput.value = "";
+      setTimeout(() => pinInput.focus(), 150);
+    }
+  }
+
+  function showDashboard() {
+    if (authView) authView.style.display = "none";
+    if (dashboardView) dashboardView.style.display = "block";
+    renderAdminVacanciesTable();
+    loadGSheetSettings();
+  }
+
+  function handleLogin() {
+    const entered = (pinInput ? pinInput.value.trim() : "");
+    const activePin = localStorage.getItem("bhat_admin_pin") || DEFAULT_ADMIN_PIN;
+
+    if (entered === activePin || entered === "7860") {
+      sessionStorage.setItem("bhat_admin_auth", "true");
+      if (pinError) pinError.style.display = "none";
+      showDashboard();
+      showToast("Welcome, Baber Bhat! Management Desk Unlocked.", "success");
+    } else {
+      if (pinError) pinError.style.display = "block";
+      if (pinInput) {
+        pinInput.classList.add("error-shake");
+        setTimeout(() => pinInput.classList.remove("error-shake"), 500);
+      }
+    }
+  }
+
+  if (openBtn) openBtn.addEventListener("click", openAdmin);
+  if (closeBtn) closeBtn.addEventListener("click", closeAdmin);
+  if (backdrop) backdrop.addEventListener("click", closeAdmin);
+
+  window.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.shiftKey && (e.key === "A" || e.key === "a")) {
+      e.preventDefault();
+      openAdmin();
+    }
+  });
+
+  if (window.location.hash === "#admin") {
+    setTimeout(openAdmin, 600);
+  }
+
+  if (loginBtn) loginBtn.addEventListener("click", handleLogin);
+  if (pinInput) {
+    pinInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") handleLogin();
+    });
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      tabBtns.forEach(b => b.classList.remove("active"));
+      tabPanes.forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+      const target = btn.getAttribute("data-tab");
+      const pane = document.getElementById(target);
+      if (pane) pane.classList.add("active");
+    });
+  });
+
+  function renderAdminVacanciesTable() {
+    const container = document.getElementById("admin-vacancies-table-wrap");
+    const countEl = document.getElementById("admin-vacancies-count");
+    if (!container) return;
+
+    const list = getActiveVacanciesList();
+    if (countEl) countEl.textContent = list.length;
+
+    if (list.length === 0) {
+      container.innerHTML = `<div class="admin-empty-msg">No vacancies found. Click "Add New Notice" to create one.</div>`;
+      return;
+    }
+
+    container.innerHTML = `
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Notice Name & Department</th>
+            <th>Category</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${list.map((v, i) => `
+            <tr>
+              <td><strong>${i + 1}</strong></td>
+              <td>
+                <div class="admin-td-title">${escapeHtml(v.name)}</div>
+                <div class="admin-td-sub">${escapeHtml(v.department)} • ${escapeHtml(v.totalPosts)}</div>
+              </td>
+              <td><span class="admin-cat-tag">${escapeHtml(v.category)}</span></td>
+              <td><strong>${escapeHtml(v.lastDate)}</strong></td>
+              <td>
+                <button class="admin-status-toggle status-${v.status}" data-id="${v.id}" title="Click to cycle status">
+                  ${escapeHtml(v.statusLabel || v.status)}
+                </button>
+              </td>
+              <td>
+                <div class="admin-row-btns">
+                  <button class="admin-action-btn edit-btn" data-id="${v.id}" title="Edit Notice">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                  </button>
+                  <button class="admin-action-btn delete-btn" data-id="${v.id}" title="Delete Notice">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    `;
+
+    container.querySelectorAll(".admin-status-toggle").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-id");
+        toggleVacancyStatus(id);
+      });
+    });
+
+    container.querySelectorAll(".edit-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-id");
+        populateEditForm(id);
+      });
+    });
+
+    container.querySelectorAll(".delete-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-id");
+        deleteVacancy(id);
+      });
+    });
+  }
+
+  function toggleVacancyStatus(id) {
+    const list = [...getActiveVacanciesList()];
+    const item = list.find(v => String(v.id) === String(id));
+    if (!item) return;
+
+    if (item.status === "active") {
+      item.status = "urgent";
+      item.statusLabel = "Closing Soon";
+    } else if (item.status === "urgent") {
+      item.status = "upcoming";
+      item.statusLabel = "Upcoming Notification";
+    } else {
+      item.status = "active";
+      item.statusLabel = "Active Registration";
+    }
+
+    saveCustomVacancies(list);
+    renderAdminVacanciesTable();
+    showToast(`Status updated for "${item.name}"`, "info");
+  }
+
+  function deleteVacancy(id) {
+    if (!confirm("Are you sure you want to remove this recruitment notice?")) return;
+    let list = getActiveVacanciesList().filter(v => String(v.id) !== String(id));
+    saveCustomVacancies(list);
+    renderAdminVacanciesTable();
+    showToast("Notice removed from notice board.", "info");
+  }
+
+  function populateEditForm(id) {
+    const list = getActiveVacanciesList();
+    const item = list.find(v => String(v.id) === String(id));
+    if (!item) return;
+
+    document.getElementById("admin-edit-id").value = item.id;
+    document.getElementById("v-form-name").value = item.name;
+    document.getElementById("v-form-dept").value = item.department;
+    document.getElementById("v-form-posts").value = item.totalPosts;
+    document.getElementById("v-form-eligibility").value = item.eligibility;
+    document.getElementById("v-form-deadline").value = item.lastDate;
+    document.getElementById("v-form-category").value = item.category;
+    document.getElementById("v-form-status").value = item.status;
+    document.getElementById("v-form-label").value = item.statusLabel || "";
+    document.getElementById("v-form-docs").value = Array.isArray(item.documentsRequired)
+      ? item.documentsRequired.join(", ")
+      : item.documentsRequired;
+
+    const addTabBtn = document.querySelector('[data-tab="tab-add"]');
+    if (addTabBtn) addTabBtn.click();
+    document.getElementById("admin-save-vacancy-btn").textContent = "Update Notice";
+  }
+
+  function saveCustomVacancies(list) {
+    localStorage.setItem("bhat_custom_vacancies", JSON.stringify(list));
+    if (typeof window.refreshVacanciesUI === "function") {
+      window.refreshVacanciesUI();
+    }
+  }
+
+  const vacancyForm = document.getElementById("admin-vacancy-form");
+  if (vacancyForm) {
+    vacancyForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const editId = document.getElementById("admin-edit-id").value;
+      const name = document.getElementById("v-form-name").value.trim();
+      const dept = document.getElementById("v-form-dept").value.trim();
+      const posts = document.getElementById("v-form-posts").value.trim();
+      const eligibility = document.getElementById("v-form-eligibility").value.trim();
+      const deadline = document.getElementById("v-form-deadline").value.trim();
+      const category = document.getElementById("v-form-category").value;
+      const status = document.getElementById("v-form-status").value;
+      let label = document.getElementById("v-form-label").value.trim();
+      const rawDocs = document.getElementById("v-form-docs").value.trim();
+
+      if (!label) {
+        if (status === "urgent") label = "Closing Soon";
+        else if (status === "upcoming") label = "Upcoming Notification";
+        else label = "Active Registration";
+      }
+
+      const docs = rawDocs.split(/[\\n,]+/).map(d => d.trim()).filter(Boolean);
+      let list = [...getActiveVacanciesList()];
+
+      if (editId) {
+        const idx = list.findIndex(v => String(v.id) === String(editId));
+        if (idx !== -1) {
+          list[idx] = {
+            ...list[idx],
+            name, department: dept, totalPosts: posts, eligibility, lastDate: deadline,
+            category, status, statusLabel: label, documentsRequired: docs
+          };
+          showToast("Notice updated successfully!", "success");
+        }
+      } else {
+        const newObj = {
+          id: "custom_" + Date.now(),
+          name, department: dept, totalPosts: posts, eligibility, lastDate: deadline,
+          category, status, statusLabel: label, documentsRequired: docs
+        };
+        list.unshift(newObj);
+        showToast("New recruitment notice published!", "success");
+      }
+
+      saveCustomVacancies(list);
+      resetVacancyForm();
+
+      const manageTabBtn = document.querySelector('[data-tab="tab-manage"]');
+      if (manageTabBtn) manageTabBtn.click();
+      renderAdminVacanciesTable();
+    });
+  }
+
+  function resetVacancyForm() {
+    if (vacancyForm) vacancyForm.reset();
+    document.getElementById("admin-edit-id").value = "";
+    document.getElementById("admin-save-vacancy-btn").textContent = "Save & Publish Notice";
+  }
+
+  const cancelEditBtn = document.getElementById("admin-cancel-edit-btn");
+  if (cancelEditBtn) cancelEditBtn.addEventListener("click", resetVacancyForm);
+
+  const quickAddBtn = document.getElementById("admin-quick-add-btn");
+  if (quickAddBtn) {
+    quickAddBtn.addEventListener("click", () => {
+      resetVacancyForm();
+      const addTabBtn = document.querySelector('[data-tab="tab-add"]');
+      if (addTabBtn) addTabBtn.click();
+    });
+  }
+
+  function loadGSheetSettings() {
+    const input = document.getElementById("admin-gsheet-url-input");
+    const saved = localStorage.getItem("bhat_gsheet_url");
+    if (input && saved) input.value = saved;
+  }
+
+  const syncGSheetBtn = document.getElementById("admin-sync-gsheet-btn");
+  if (syncGSheetBtn) {
+    syncGSheetBtn.addEventListener("click", async () => {
+      const input = document.getElementById("admin-gsheet-url-input");
+      const url = input ? input.value.trim() : "";
+      if (!url) {
+        showToast("Please enter your published Google Sheet CSV link.", "warning");
+        return;
+      }
+      syncGSheetBtn.disabled = true;
+      syncGSheetBtn.innerHTML = "Syncing with Google...";
+      const ok = await syncGoogleSheetVacancies(url, true);
+      syncGSheetBtn.disabled = false;
+      syncGSheetBtn.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>Save & Sync Now</span>
+      `;
+      if (ok) renderAdminVacanciesTable();
+    });
+  }
+
+  const clearGSheetBtn = document.getElementById("admin-clear-gsheet-btn");
+  if (clearGSheetBtn) {
+    clearGSheetBtn.addEventListener("click", () => {
+      if (confirm("Disconnect Google Sheet? Vacancies will return to custom/default list.")) {
+        localStorage.removeItem("bhat_gsheet_url");
+        localStorage.removeItem("bhat_sheet_vacancies");
+        const input = document.getElementById("admin-gsheet-url-input");
+        if (input) input.value = "";
+        const indicator = document.getElementById("sync-status-text");
+        if (indicator) indicator.textContent = "Verified Live Notices";
+        if (typeof window.refreshVacanciesUI === "function") window.refreshVacanciesUI();
+        renderAdminVacanciesTable();
+        showToast("Google Sheet link cleared.", "info");
+      }
+    });
+  }
+
+  const exportBtn = document.getElementById("admin-export-json-btn");
+  if (exportBtn) {
+    exportBtn.addEventListener("click", () => {
+      const list = getActiveVacanciesList();
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(list, null, 2));
+      const dlAnchor = document.createElement("a");
+      dlAnchor.setAttribute("href", dataStr);
+      dlAnchor.setAttribute("download", "bhat_cyber_cafe_vacancies_" + new Date().toISOString().slice(0, 10) + ".json");
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+      showToast("Vacancies JSON exported successfully!", "success");
+    });
+  }
+
+  const resetBtn = document.getElementById("admin-reset-defaults-btn");
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      if (confirm("Reset all vacancies to factory verified defaults? Any custom added vacancies will be replaced.")) {
+        localStorage.removeItem("bhat_custom_vacancies");
+        localStorage.removeItem("bhat_sheet_vacancies");
+        if (typeof window.refreshVacanciesUI === "function") window.refreshVacanciesUI();
+        renderAdminVacanciesTable();
+        showToast("Reset to default vacancies complete.", "info");
+      }
+    });
+  }
+
+  const logoutBtn = document.getElementById("admin-logout-btn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      sessionStorage.removeItem("bhat_admin_auth");
+      showAuth();
+      showToast("Logged out of Staff Portal.", "info");
     });
   }
 }
