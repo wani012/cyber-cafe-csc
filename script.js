@@ -1279,18 +1279,81 @@ function initAIVoiceAndPdfAssistant() {
     }
   }
 
-  // Speech Recognition (Web Speech API)
+  // Devanagari to Hinglish / English Transliterator
+  function devanagariToHinglish(input) {
+    if (!input) return "";
+    if (!/[\u0900-\u097F]/.test(input)) return input;
+
+    const wordDict = {
+      "अपलोड कर दो": "upload kar do",
+      "अपलोड करो": "upload karo",
+      "अपलोड": "upload",
+      "ऐड कर दो": "add kar do",
+      "ऐड करो": "add karo",
+      "ऐड": "add",
+      "पब्लिश कर दो": "publish kar do",
+      "पब्लिश": "publish",
+      "स्कैन करो": "scan karo",
+      "स्कैन": "scan",
+      "फॉर्म भरो": "form bhar do",
+      "फॉर्म": "form",
+      "नोटिस": "notice",
+      "वैकेंसी": "vacancy",
+      "भर्ती": "recruitment",
+      "लास्ट डेट": "last date",
+      "अंतिम तिथि": "last date",
+      "पोस्ट": "posts",
+      "पद": "posts",
+      "योग्यता": "eligibility",
+      "जेकेएसएसबी": "JKSSB",
+      "एसएससी": "SSC",
+      "यूपीएससी": "UPSC",
+      "पुलिस": "Police",
+      "रेलवे": "Railway",
+      "कर दो": "kar do",
+      "करो": "karo",
+      "डाल दो": "daal do",
+      "भेज दो": "bhej do"
+    };
+
+    let str = input;
+    for (const [hindi, hinglish] of Object.entries(wordDict)) {
+      str = str.replace(new RegExp(hindi, "g"), hinglish);
+    }
+
+    // Phonetic char mapping for any remaining Devanagari
+    const charMap = {
+      'अ':'a', 'आ':'aa', 'इ':'i', 'ई':'ee', 'उ':'u', 'ऊ':'oo', 'ऋ':'ri', 'ए':'e', 'ऐ':'ai', 'ओ':'o', 'औ':'au',
+      'क':'k', 'ख':'kh', 'ग':'g', 'घ':'gh', 'ङ':'ng',
+      'च':'ch', 'छ':'chh', 'ज':'j', 'झ':'jh', 'ञ':'ny',
+      'ट':'t', 'ठ':'th', 'ड':'d', 'ढ':'dh', 'ण':'n',
+      'त':'t', 'थ':'th', 'द':'d', 'ध':'dh', 'न':'n',
+      'प':'p', 'फ':'ph', 'ब':'b', 'भ':'bh', 'म':'m',
+      'य':'y', 'र':'r', 'ल':'l', 'व':'v', 'श':'sh', 'ष':'sh', 'स':'s', 'ह':'h',
+      'क्ष':'ksh', 'त्र':'tr', 'ज्ञ':'gy',
+      'ा':'a', 'ि':'i', 'ी':'ee', 'ु':'u', 'ू':'oo', 'ृ':'ri', 'े':'e', 'ै':'ai', 'ो':'o', 'ौ':'au', 'ं':'n', 'ँ':'n', 'ः':'h', '्':''
+    };
+
+    let result = "";
+    for (let i = 0; i < str.length; i++) {
+      const ch = str[i];
+      result += charMap[ch] !== undefined ? charMap[ch] : ch;
+    }
+    return result;
+  }
+
+  // Speech Recognition (Web Speech API) - Hinglish / Indian English
   const SpeechRecClass = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (SpeechRecClass) {
     recognition = new SpeechRecClass();
-    recognition.lang = "hi-IN";
+    recognition.lang = "en-IN"; // English (India) writes Hinglish in English alphabet
     recognition.continuous = false;
     recognition.interimResults = true;
 
     recognition.onstart = () => {
       isListening = true;
       if (micBtn) micBtn.classList.add("listening");
-      if (voiceStatus) voiceStatus.textContent = "Listening... Bolna shuru karein (e.g. 'Upload kardo', 'Add notice')";
+      if (voiceStatus) voiceStatus.textContent = "Listening (Hinglish/English)... Bolna shuru karein (e.g. 'Upload kar do', 'Add notice')";
       if (soundWave) soundWave.style.display = "flex";
     };
 
@@ -1305,13 +1368,15 @@ function initAIVoiceAndPdfAssistant() {
           interim += transcript;
         }
       }
-      const spoken = final || interim;
-      if (transcriptBox && spoken) {
-        transcriptBox.innerHTML = `<strong>🗣️ Spoken:</strong> "${escapeHtml(spoken)}"`;
+      const rawSpoken = final || interim;
+      const hinglishSpoken = devanagariToHinglish(rawSpoken);
+
+      if (transcriptBox && hinglishSpoken) {
+        transcriptBox.innerHTML = `<strong>🗣️ Spoken:</strong> "${escapeHtml(hinglishSpoken)}"`;
       }
 
       if (final) {
-        handleSpokenCommand(final.trim());
+        handleSpokenCommand(devanagariToHinglish(final.trim()));
       }
     };
 
