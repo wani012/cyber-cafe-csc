@@ -229,6 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNotificationPopup();
   initGoogleSheetSync();
   initAdminPanel();
+  initAIVoiceAndPdfAssistant();
 });
 
 // ==========================================
@@ -1193,6 +1194,646 @@ function initAdminPanel() {
       sessionStorage.removeItem("bhat_admin_auth");
       showAuth();
       showToast("Logged out of Staff Portal.", "info");
+    });
+  }
+}
+
+// ==========================================
+// 8.5. AI VOICE & PDF NOTICE ASSISTANT
+// ==========================================
+function initAIVoiceAndPdfAssistant() {
+  const micBtn = document.getElementById("ai-voice-mic-btn");
+  const voiceStatus = document.getElementById("ai-voice-status");
+  const soundWave = document.getElementById("ai-soundwave");
+  const transcriptBox = document.getElementById("ai-transcript-box");
+  const dropzone = document.getElementById("ai-pdf-dropzone");
+  const fileInput = document.getElementById("ai-pdf-input");
+  const dropzoneContent = document.getElementById("dropzone-content");
+  const dropzoneFileInfo = document.getElementById("dropzone-file-info");
+  const filenameEl = document.getElementById("ai-pdf-filename");
+  const filesizeEl = document.getElementById("ai-pdf-filesize");
+  const removePdfBtn = document.getElementById("ai-remove-pdf-btn");
+  const extractBtn = document.getElementById("ai-extract-btn");
+  const progressWrap = document.getElementById("ai-extract-progress");
+  const progressFill = document.getElementById("ai-progress-fill");
+  const progressText = document.getElementById("ai-progress-text");
+  const previewCard = document.getElementById("ai-extracted-preview");
+  const voiceSpeakToggle = document.getElementById("ai-voice-speak-toggle");
+  const publishDirectBtn = document.getElementById("ai-publish-direct-btn");
+  const transferFormBtn = document.getElementById("ai-transfer-form-btn");
+  const clearPreviewBtn = document.getElementById("ai-clear-preview-btn");
+  const voiceChips = document.querySelectorAll(".ai-chip");
+
+  // Gemini API Key elements
+  const geminiInput = document.getElementById("ai-gemini-api-key");
+  const saveKeyBtn = document.getElementById("ai-save-key-btn");
+  const removeKeyBtn = document.getElementById("ai-remove-key-btn");
+  const keyStatus = document.getElementById("ai-key-status");
+
+  let currentFile = null;
+  let isListening = false;
+  let recognition = null;
+
+  // Load saved Gemini Key if any
+  if (geminiInput) {
+    const savedKey = localStorage.getItem("bhat_gemini_key");
+    if (savedKey) {
+      geminiInput.value = savedKey;
+      if (keyStatus) keyStatus.textContent = "Gemini API Key active.";
+    }
+  }
+
+  if (saveKeyBtn) {
+    saveKeyBtn.addEventListener("click", () => {
+      const k = geminiInput ? geminiInput.value.trim() : "";
+      if (k) {
+        localStorage.setItem("bhat_gemini_key", k);
+        if (keyStatus) keyStatus.textContent = "Gemini API Key saved successfully!";
+        showToast("Gemini API Key saved.", "success");
+      }
+    });
+  }
+
+  if (removeKeyBtn) {
+    removeKeyBtn.addEventListener("click", () => {
+      localStorage.removeItem("bhat_gemini_key");
+      if (geminiInput) geminiInput.value = "";
+      if (keyStatus) keyStatus.textContent = "Key removed. Using fast built-in PDF parser.";
+      showToast("Gemini API Key removed.", "info");
+    });
+  }
+
+  // Voice Feedback TTS
+  function speakVoice(text) {
+    if (!voiceSpeakToggle || !voiceSpeakToggle.checked) return;
+    if (!("speechSynthesis" in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.rate = 1.05;
+      utter.pitch = 1.0;
+      utter.lang = "hi-IN";
+      window.speechSynthesis.speak(utter);
+    } catch (e) {
+      console.warn("TTS Error:", e);
+    }
+  }
+
+  // Speech Recognition (Web Speech API)
+  const SpeechRecClass = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SpeechRecClass) {
+    recognition = new SpeechRecClass();
+    recognition.lang = "hi-IN";
+    recognition.continuous = false;
+    recognition.interimResults = true;
+
+    recognition.onstart = () => {
+      isListening = true;
+      if (micBtn) micBtn.classList.add("listening");
+      if (voiceStatus) voiceStatus.textContent = "Listening... Bolna shuru karein (e.g. 'Upload kardo', 'Add notice')";
+      if (soundWave) soundWave.style.display = "flex";
+    };
+
+    recognition.onresult = (event) => {
+      let interim = "";
+      let final = "";
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          final += transcript;
+        } else {
+          interim += transcript;
+        }
+      }
+      const spoken = final || interim;
+      if (transcriptBox && spoken) {
+        transcriptBox.innerHTML = `<strong>🗣️ Spoken:</strong> "${escapeHtml(spoken)}"`;
+      }
+
+      if (final) {
+        handleSpokenCommand(final.trim());
+      }
+    };
+
+    recognition.onerror = (event) => {
+      console.warn("Speech recognition error:", event.error);
+      isListening = false;
+      if (micBtn) micBtn.classList.remove("listening");
+      if (soundWave) soundWave.style.display = "none";
+      if (voiceStatus) voiceStatus.textContent = "Mic stopped. Click karein aur dobara bole.";
+    };
+
+    recognition.onend = () => {
+      isListening = false;
+      if (micBtn) micBtn.classList.remove("listening");
+      if (soundWave) soundWave.style.display = "none";
+      if (voiceStatus) voiceStatus.textContent = "Mic Ready — Click karein aur bole...";
+    };
+  } else {
+    if (voiceStatus) {
+      voiceStatus.textContent = "Speech Recognition supported in Chrome/Edge. Click buttons below to operate.";
+    }
+  }
+
+  if (micBtn) {
+    micBtn.addEventListener("click", () => {
+      if (!recognition) {
+        showToast("Speech Recognition is not supported in this browser. Please use Google Chrome or Microsoft Edge.", "warning");
+        return;
+      }
+      if (isListening) {
+        recognition.stop();
+      } else {
+        try {
+          recognition.start();
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+    });
+  }
+
+  // Voice Chips
+  voiceChips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const phrase = chip.getAttribute("data-speak") || chip.textContent.replace(/["']/g, "");
+      if (transcriptBox) {
+        transcriptBox.innerHTML = `<strong>🗣️ Command:</strong> "${escapeHtml(phrase)}"`;
+      }
+      handleSpokenCommand(phrase);
+    });
+  });
+
+  // Handle Voice Command
+  function handleSpokenCommand(phrase) {
+    const lower = phrase.toLowerCase();
+    
+    // Command 1: Upload / Add / Publish / Update
+    if (lower.includes("upload") || lower.includes("add") || lower.includes("publish") || lower.includes("update") || lower.includes("daal do") || lower.includes("dal do") || lower.includes("bhejo")) {
+      const nameVal = document.getElementById("ai-p-name") ? document.getElementById("ai-p-name").value.trim() : "";
+      if (nameVal && previewCard && previewCard.style.display !== "none") {
+        speakVoice("Notice ko Bhat Cafe website par publish kiya ja raha hai.");
+        publishExtractedNotice();
+      } else if (currentFile) {
+        speakVoice("PDF scan karke direct publish kiya ja raha hai.");
+        extractPdf(true);
+      } else {
+        speakVoice("Pehle PDF upload karein ya vacancy ka naam bolein.");
+        showToast("Please upload a PDF or enter vacancy details first.", "warning");
+      }
+      return;
+    }
+
+    // Command 2: Scan / Extract
+    if (lower.includes("scan") || lower.includes("extract") || lower.includes("padho") || lower.includes("read")) {
+      if (currentFile) {
+        speakVoice("PDF scan shuru ho gaya hai.");
+        extractPdf(false);
+      } else {
+        speakVoice("Pehle koi Notification PDF select karein.");
+        if (fileInput) fileInput.click();
+      }
+      return;
+    }
+
+    // Command 3: Fill Form / Form
+    if (lower.includes("form") || lower.includes("transfer") || lower.includes("edit")) {
+      transferToStandardForm();
+      speakVoice("Details form mein fill kar di gayi hain.");
+      return;
+    }
+
+    // Direct Spoken Notice Dictation
+    parseSpokenDictation(phrase);
+  }
+
+  // Dropzone Events
+  if (dropzone && fileInput) {
+    dropzone.addEventListener("click", (e) => {
+      if (e.target !== removePdfBtn && !e.target.closest("#ai-remove-pdf-btn")) {
+        fileInput.click();
+      }
+    });
+
+    dropzone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropzone.classList.add("dragover");
+    });
+
+    dropzone.addEventListener("dragleave", () => {
+      dropzone.classList.remove("dragover");
+    });
+
+    dropzone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropzone.classList.remove("dragover");
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleFileSelect(e.dataTransfer.files[0]);
+      }
+    });
+
+    fileInput.addEventListener("change", (e) => {
+      if (e.target.files && e.target.files.length > 0) {
+        handleFileSelect(e.target.files[0]);
+      }
+    });
+  }
+
+  function handleFileSelect(file) {
+    if (!file || (!file.name.toLowerCase().endsWith(".pdf") && file.type !== "application/pdf")) {
+      showToast("Please select a valid PDF file.", "warning");
+      return;
+    }
+    currentFile = file;
+    if (filenameEl) filenameEl.textContent = file.name;
+    if (filesizeEl) filesizeEl.textContent = formatBytes(file.size);
+    if (dropzoneContent) dropzoneContent.style.display = "none";
+    if (dropzoneFileInfo) dropzoneFileInfo.style.display = "flex";
+    if (extractBtn) {
+      extractBtn.disabled = false;
+      extractBtn.innerHTML = `<span>⚡ AI Auto-Scan & Extract Details</span>`;
+    }
+    showToast(`PDF selected: ${file.name}`, "info");
+    speakVoice("PDF select ho gaya hai. Auto-scan karne ke liye 'Scan' kahein ya button dabayein.");
+  }
+
+  if (removePdfBtn) {
+    removePdfBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      currentFile = null;
+      if (fileInput) fileInput.value = "";
+      if (dropzoneContent) dropzoneContent.style.display = "block";
+      if (dropzoneFileInfo) dropzoneFileInfo.style.display = "none";
+      if (extractBtn) extractBtn.disabled = true;
+      if (progressWrap) progressWrap.style.display = "none";
+    });
+  }
+
+  if (extractBtn) {
+    extractBtn.addEventListener("click", () => {
+      if (currentFile) extractPdf(false);
+    });
+  }
+
+  // PDF Extraction using PDF.js
+  async function extractPdf(autoPublish = false) {
+    if (!currentFile) return;
+
+    if (progressWrap) progressWrap.style.display = "block";
+    if (progressFill) progressFill.style.width = "20%";
+    if (progressText) progressText.textContent = "Loading PDF document...";
+    if (extractBtn) {
+      extractBtn.disabled = true;
+      extractBtn.innerHTML = "<span>Analyzing with AI...</span>";
+    }
+
+    try {
+      if (typeof window.pdfjsLib === "undefined") {
+        throw new Error("PDF.js library is loading. Please try again in 2 seconds.");
+      }
+
+      const arrayBuffer = await currentFile.arrayBuffer();
+      if (progressFill) progressFill.style.width = "40%";
+      if (progressText) progressText.textContent = "Extracting text from pages...";
+
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      let fullText = "";
+      const maxPages = Math.min(pdf.numPages, 10);
+
+      for (let i = 1; i <= maxPages; i++) {
+        const page = await pdf.getPage(i);
+        const textContent = await page.getTextContent();
+        const pageString = textContent.items.map(item => item.str).join(" ");
+        fullText += "\n" + pageString;
+        if (progressFill) progressFill.style.width = `${40 + Math.round((i / maxPages) * 35)}%`;
+      }
+
+      if (progressFill) progressFill.style.width = "85%";
+      if (progressText) progressText.textContent = "AI NLP Pattern Parsing...";
+
+      const geminiKey = localStorage.getItem("bhat_gemini_key");
+      let extracted = null;
+
+      if (geminiKey && geminiKey.length > 20) {
+        if (progressText) progressText.textContent = "Querying Google Gemini 1.5 Flash...";
+        extracted = await queryGeminiAPI(fullText, geminiKey);
+      }
+
+      if (!extracted) {
+        extracted = parseRecruitmentText(fullText, currentFile.name);
+      }
+
+      if (progressFill) progressFill.style.width = "100%";
+      if (progressText) progressText.textContent = "Extraction complete!";
+
+      setTimeout(() => {
+        if (progressWrap) progressWrap.style.display = "none";
+      }, 800);
+
+      populatePreview(extracted);
+
+      if (autoPublish) {
+        publishExtractedNotice();
+        speakVoice("Notice successfully extracted and live website par publish ho gaya hai!");
+      } else {
+        speakVoice("Notification PDF analyze ho gaya hai! Details preview card mein ready hain. 'Upload kardo' kahein ya 1-Click Update dabayein.");
+        showToast("PDF parsed successfully! Review details and click 1-Click Update.", "success");
+      }
+
+    } catch (err) {
+      console.error("PDF Extraction Error:", err);
+      if (progressWrap) progressWrap.style.display = "none";
+      showToast("Error extracting PDF: " + err.message, "error");
+      speakVoice("PDF read karne mein error aayi. Please dobara try karein.");
+    } finally {
+      if (extractBtn) {
+        extractBtn.disabled = false;
+        extractBtn.innerHTML = "<span>⚡ AI Auto-Scan & Extract Details</span>";
+      }
+    }
+  }
+
+  // Smart J&K and Central Govt NLP Rule Parser
+  function parseRecruitmentText(rawText, filename = "") {
+    const text = rawText.replace(/\s+/g, " ");
+
+    let name = "";
+    const cleanFilename = filename.replace(/\.[^/.]+$/, "").replace(/[_\-+]/g, " ").trim();
+
+    const titleMatch = text.match(/(?:Advertisement\s+Notification\s+No\.?\s*[:\-\d\w/]+[\s,]+)?(?:Recruitment\s+(?:to|for)\s+(?:the\s+post\s+of\s+)?|Selection\s+for\s+(?:the\s+post\s+of\s+)?)([^.\n\r;]{5,80})/i);
+    if (titleMatch && titleMatch[1]) {
+      name = titleMatch[1].trim();
+    } else {
+      const knownTitles = [
+        "Junior Assistant", "Sub Inspector", "Constable", "Accounts Assistant", 
+        "Patwari", "Village Level Worker", "VLW", "Panchayat Secretary", 
+        "Forest Guard", "Forester", "Staff Nurse", "Medical Officer",
+        "Combined Higher Secondary Level", "CGL", "CHSL", "MTS", "Multi Tasking Staff",
+        "Agniveer", "NDA", "CDS", "CUET UG", "CUET PG", "PMSSS Scholarship"
+      ];
+      for (const t of knownTitles) {
+        if (new RegExp("\\b" + t + "\\b", "i").test(text)) {
+          name = t + " Recruitment 2026";
+          break;
+        }
+      }
+      if (!name) {
+        name = cleanFilename.length > 5 ? cleanFilename : "Government Recruitment Notification 2026";
+      }
+    }
+
+    let dept = "Government of J&K / Central Authority";
+    if (/jkssb|services\s*selection\s*board/i.test(text)) {
+      dept = "J&K Services Selection Board (JKSSB)";
+    } else if (/jkpsc|public\s*service\s*commission/i.test(text)) {
+      dept = "J&K Public Service Commission (JKPSC)";
+    } else if (/ssc|staff\s*selection\s*commission/i.test(text)) {
+      dept = "Staff Selection Commission (Govt of India)";
+    } else if (/police|headquarters\s*j&k/i.test(text)) {
+      dept = "J&K Police & Armed Headquarters";
+    } else if (/railway|rrb|rrc/i.test(text)) {
+      dept = "Railway Recruitment Board (RRB)";
+    } else if (/army|agniveer|recruiting\s*office/i.test(text)) {
+      dept = "Indian Army (Recruiting Zone / Agniveer)";
+    } else if (/nta|national\s*testing\s*agency/i.test(text)) {
+      dept = "National Testing Agency (NTA)";
+    } else if (/aicte|pmsss/i.test(text)) {
+      dept = "AICTE & J&K Higher Education Dept";
+    } else if (/high\s*court/i.test(text)) {
+      dept = "High Court of Jammu & Kashmir and Ladakh";
+    }
+
+    let posts = "Check Notification for Details";
+    const postsMatch = text.match(/(?:Total\s*(?:No\.?\s*of)?\s*(?:Posts?|Vacancies|Seats)?\s*[:=\-]?\s*|(\d{1,5})\s*(?:posts?|vacancies|positions))/i);
+    if (postsMatch) {
+      if (postsMatch[1]) {
+        posts = `${postsMatch[1]}+ Vacancies`;
+      } else {
+        const numMatch = text.slice(postsMatch.index, postsMatch.index + 50).match(/\b(\d{1,5})\b/);
+        if (numMatch) posts = `${numMatch[1]}+ Vacancies`;
+      }
+    }
+
+    let eligibility = "Graduation / 12th / Matric with Relevant Qualification";
+    const quals = [];
+    if (/10th|matric/i.test(text)) quals.push("10th / Matric");
+    if (/12th|10\+2|higher\s*secondary/i.test(text)) quals.push("12th Standard");
+    if (/graduation|graduate|bachelor/i.test(text)) quals.push("Graduation in Any Discipline");
+    if (/typing|35\s*wpm/i.test(text)) quals.push("35 WPM Computer Typing");
+    if (/diploma|computer\s*course|6\s*month/i.test(text)) quals.push("Computer Diploma");
+    if (/b\.?tech|b\.?e|engineering/i.test(text)) quals.push("B.Tech / Engineering");
+    if (/master|post\s*graduate|pg/i.test(text)) quals.push("Master's Degree");
+
+    if (quals.length > 0) {
+      eligibility = quals.join(" • ");
+    }
+
+    let deadline = "25 Oct 2026";
+    const dateMatch = text.match(/(?:last\s*date|closing\s*date|apply\s*online\s*up\s*to|receipt\s*of\s*application)\s*(?:for\s*submission)?\s*[:=\-]?\s*([0-9]{1,2}[./\-][0-9]{1,2}[./\-][0-9]{2,4}|[0-9]{1,2}\s+[A-Za-z]{3,9}\s+[0-9]{4})/i);
+    if (dateMatch && dateMatch[1]) {
+      deadline = dateMatch[1].trim();
+    }
+
+    let category = "jk-state";
+    if (/ssc|upsc|railway|rrb|central/i.test(text + " " + dept)) {
+      category = "central";
+    } else if (/police|army|defense|constable|sdrf|bsf|crpf/i.test(text + " " + dept)) {
+      category = "defense";
+    } else if (/cuet|neet|jee|admission|entrance/i.test(text + " " + dept)) {
+      category = "entrance";
+    } else if (/scholarship|pmsss|nsp/i.test(text + " " + dept)) {
+      category = "scholarship";
+    }
+
+    const docs = [
+      "J&K UT Domicile Certificate (Mandatory for State posts)",
+      "10th Class Diploma / Marksheet (DOB Proof)",
+      "12th / Graduation Consolidated Marksheets & Degree",
+      "Valid Category Certificate (RBA, SC, ST, EWS, OSC/OBC if applicable)",
+      "Aadhaar Card & 4 Recent Passport Size Photographs"
+    ];
+
+    return {
+      name,
+      department: dept,
+      totalPosts: posts,
+      eligibility,
+      lastDate: deadline,
+      category,
+      documentsRequired: docs
+    };
+  }
+
+  // Optional Deep Gemini Flash API Caller
+  async function queryGeminiAPI(rawText, apiKey) {
+    try {
+      const prompt = `Analyze this government vacancy/recruitment notification text and return a JSON object with:
+{
+  "name": "Exact post or exam title (e.g. JKSSB Junior Assistant 2026)",
+  "department": "Full name of issuing board/department (e.g. J&K Services Selection Board)",
+  "totalPosts": "Number of vacancies with scope (e.g. 2,450+ Vacancies)",
+  "eligibility": "Qualification and skills required",
+  "lastDate": "Last application date (e.g. 25 Oct 2026)",
+  "category": "One of: jk-state, central, defense, entrance, scholarship",
+  "documentsRequired": ["Document 1", "Document 2", "Document 3"]
+}
+
+Notification text sample:
+${rawText.slice(0, 4000)}
+
+Return ONLY valid JSON.`;
+
+      const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }]
+        })
+      });
+
+      if (!resp.ok) throw new Error("Gemini API returned " + resp.status);
+      const data = await resp.json();
+      const content = data.candidates[0].content.parts[0].text;
+      const jsonMatch = content.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        return JSON.parse(jsonMatch[0]);
+      }
+    } catch (e) {
+      console.warn("Gemini query failed, falling back to local NLP:", e);
+    }
+    return null;
+  }
+
+  // Populate Extracted Preview
+  function populatePreview(data) {
+    if (!previewCard) return;
+
+    const nameInput = document.getElementById("ai-p-name");
+    const deptInput = document.getElementById("ai-p-dept");
+    const postsInput = document.getElementById("ai-p-posts");
+    const eligInput = document.getElementById("ai-p-eligibility");
+    const deadInput = document.getElementById("ai-p-deadline");
+    const catSelect = document.getElementById("ai-p-category");
+    const docsText = document.getElementById("ai-p-docs");
+
+    if (nameInput) nameInput.value = data.name || "";
+    if (deptInput) deptInput.value = data.department || "";
+    if (postsInput) postsInput.value = data.totalPosts || "";
+    if (eligInput) eligInput.value = data.eligibility || "";
+    if (deadInput) deadInput.value = data.lastDate || "";
+    if (catSelect && data.category) catSelect.value = data.category;
+    if (docsText) {
+      docsText.value = Array.isArray(data.documentsRequired)
+        ? data.documentsRequired.join(", ")
+        : data.documentsRequired;
+    }
+
+    previewCard.style.display = "block";
+    previewCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  // Direct Spoken Dictation
+  function parseSpokenDictation(phrase) {
+    const data = parseRecruitmentText(phrase, "Voice Spoken Notice");
+    populatePreview(data);
+    speakVoice(`Maine "${data.name}" note kar liya hai. Live publish karne ke liye "Upload kardo" kahein.`);
+  }
+
+  // Publish Extracted Notice
+  function publishExtractedNotice() {
+    const nameInput = document.getElementById("ai-p-name");
+    const deptInput = document.getElementById("ai-p-dept");
+    const postsInput = document.getElementById("ai-p-posts");
+    const eligInput = document.getElementById("ai-p-eligibility");
+    const deadInput = document.getElementById("ai-p-deadline");
+    const catSelect = document.getElementById("ai-p-category");
+    const docsText = document.getElementById("ai-p-docs");
+
+    const name = nameInput ? nameInput.value.trim() : "";
+    const dept = deptInput ? deptInput.value.trim() : "";
+    const posts = postsInput ? postsInput.value.trim() : "";
+    const eligibility = eligInput ? eligInput.value.trim() : "";
+    const deadline = deadInput ? deadInput.value.trim() : "";
+    const category = catSelect ? catSelect.value : "jk-state";
+    const rawDocs = docsText ? docsText.value.trim() : "";
+
+    if (!name || !dept) {
+      showToast("Please provide Notice Title and Department.", "warning");
+      return;
+    }
+
+    const docs = rawDocs.split(/[\n,]+/).map(d => d.trim()).filter(Boolean);
+    const newNotice = {
+      id: "ai_" + Date.now(),
+      name,
+      department: dept,
+      totalPosts: posts || "Check Notice for Details",
+      eligibility: eligibility || "As specified in official notification",
+      lastDate: deadline || "Check Notice",
+      category,
+      status: "active",
+      statusLabel: "Active Registration",
+      documentsRequired: docs.length > 0 ? docs : [
+        "J&K Domicile Certificate",
+        "10th Marks Card (DOB Proof)",
+        "Qualification Marksheets & Degrees",
+        "Aadhaar Card & Passport Photos"
+      ]
+    };
+
+    let list = [...getActiveVacanciesList()];
+    list.unshift(newNotice);
+
+    localStorage.setItem("bhat_custom_vacancies", JSON.stringify(list));
+    if (typeof window.refreshVacanciesUI === "function") {
+      window.refreshVacanciesUI();
+    }
+    renderAdminVacanciesTable();
+
+    showToast(`🎉 "${name}" published live on Bhat Cyber Cafe!`, "success");
+    speakVoice(`${name} live website par add ho gaya hai!`);
+
+    // Reset preview
+    if (previewCard) previewCard.style.display = "none";
+    currentFile = null;
+    if (fileInput) fileInput.value = "";
+    if (dropzoneContent) dropzoneContent.style.display = "block";
+    if (dropzoneFileInfo) dropzoneFileInfo.style.display = "none";
+    if (extractBtn) extractBtn.disabled = true;
+
+    // Switch to All Vacancies tab
+    const manageTab = document.querySelector('[data-tab="tab-manage"]');
+    if (manageTab) manageTab.click();
+  }
+
+  // Transfer to Standard Form
+  function transferToStandardForm() {
+    const nameInput = document.getElementById("ai-p-name");
+    const deptInput = document.getElementById("ai-p-dept");
+    const postsInput = document.getElementById("ai-p-posts");
+    const eligInput = document.getElementById("ai-p-eligibility");
+    const deadInput = document.getElementById("ai-p-deadline");
+    const catSelect = document.getElementById("ai-p-category");
+    const docsText = document.getElementById("ai-p-docs");
+
+    if (document.getElementById("v-form-name") && nameInput) document.getElementById("v-form-name").value = nameInput.value;
+    if (document.getElementById("v-form-dept") && deptInput) document.getElementById("v-form-dept").value = deptInput.value;
+    if (document.getElementById("v-form-posts") && postsInput) document.getElementById("v-form-posts").value = postsInput.value;
+    if (document.getElementById("v-form-eligibility") && eligInput) document.getElementById("v-form-eligibility").value = eligInput.value;
+    if (document.getElementById("v-form-deadline") && deadInput) document.getElementById("v-form-deadline").value = deadInput.value;
+    if (document.getElementById("v-form-category") && catSelect) document.getElementById("v-form-category").value = catSelect.value;
+    if (document.getElementById("v-form-docs") && docsText) document.getElementById("v-form-docs").value = docsText.value;
+
+    const addTab = document.querySelector('[data-tab="tab-add"]');
+    if (addTab) addTab.click();
+    showToast("Details copied to form! Review and click Save.", "info");
+  }
+
+  if (publishDirectBtn) publishDirectBtn.addEventListener("click", publishExtractedNotice);
+  if (transferFormBtn) transferFormBtn.addEventListener("click", transferToStandardForm);
+  if (clearPreviewBtn) {
+    clearPreviewBtn.addEventListener("click", () => {
+      if (previewCard) previewCard.style.display = "none";
     });
   }
 }

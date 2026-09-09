@@ -1723,6 +1723,11 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
             <span>Add New Notice</span>
           </button>
+          <button class="admin-tab-btn ai-highlight-tab" data-tab="tab-ai">
+            <span class="ai-sparkle-icon">✨</span>
+            <span>AI Voice & PDF Tool</span>
+            <span class="admin-badge-new">AI</span>
+          </button>
           <button class="admin-tab-btn" data-tab="tab-gsheet">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             <span>Google Sheets Sync</span>
@@ -1814,6 +1819,205 @@
           </form>
         </div>
 
+        <!-- Tab: AI Voice & PDF Smart Assistant -->
+        <div id="tab-ai" class="admin-tab-pane">
+          <div class="ai-assistant-hero">
+            <div class="ai-hero-header">
+              <div class="ai-hero-title-group">
+                <div class="ai-orb-mini"></div>
+                <div>
+                  <h4 class="ai-pane-title">AI Voice & PDF Notice Assistant</h4>
+                  <p class="ai-pane-desc">Upload any Official Vacancy Notification PDF (JKSSB, SSC, Police, UPSC) ya Mic par kahein <em>"Upload kardo"</em> &mdash; AI automatically vacancy extract karke live website par update kar dega.</p>
+                </div>
+              </div>
+              <div class="ai-engine-pill">
+                <span class="pulse-dot"></span>
+                <span>Smart Client-Side AI Engine</span>
+              </div>
+            </div>
+
+            <!-- Dual Grid: Voice Command & PDF Upload -->
+            <div class="ai-interaction-grid">
+              
+              <!-- Card 1: AI Voice Command -->
+              <div class="ai-card voice-card">
+                <div class="ai-card-badge">🎙️ AI Voice Command</div>
+                <h5>Voice se Notice Update Karein</h5>
+                <p class="ai-card-sub">Mic par click karke bole: <em>"Upload kardo"</em>, <em>"Add notice"</em> ya bolkar direct vacancy details likhwayein.</p>
+                
+                <div class="ai-voice-controls">
+                  <button type="button" id="ai-voice-mic-btn" class="ai-mic-btn" title="Click to Start/Stop Speaking">
+                    <svg class="mic-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                      <line x1="12" y1="19" x2="12" y2="23"></line>
+                      <line x1="8" y1="23" x2="16" y2="23"></line>
+                    </svg>
+                    <div class="ai-voice-ripple"></div>
+                  </button>
+                  <div class="ai-voice-status-wrap">
+                    <div id="ai-voice-status" class="ai-voice-status">Mic Ready — Click karein aur bole...</div>
+                    <div class="ai-soundwave" id="ai-soundwave" style="display:none;">
+                      <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Voice Live Transcript Box -->
+                <div class="ai-transcript-box" id="ai-transcript-box">
+                  <span class="transcript-placeholder">Aapki awaaz yahan live display hogi... (e.g. "Upload kar do", "JKSSB 2400 posts add karo")</span>
+                </div>
+
+                <!-- Quick Voice Chips -->
+                <div class="ai-voice-chips">
+                  <button type="button" class="ai-chip" data-speak="Upload kar do">"Upload kar do"</button>
+                  <button type="button" class="ai-chip" data-speak="PDF scan karo">"PDF scan karo"</button>
+                  <button type="button" class="ai-chip" data-speak="Form fill kar do">"Form fill kar do"</button>
+                </div>
+              </div>
+
+              <!-- Card 2: PDF Notification Upload -->
+              <div class="ai-card pdf-card">
+                <div class="ai-card-badge">📄 Official PDF Scanner</div>
+                <h5>Notification PDF Upload Karein</h5>
+                <p class="ai-card-sub">Govt Notification PDF select karein, AI automatically post title, qualifications aur last date extract karega.</p>
+
+                <div class="ai-pdf-dropzone" id="ai-pdf-dropzone">
+                  <input type="file" id="ai-pdf-input" accept="application/pdf,.pdf" style="display:none;">
+                  <div class="dropzone-content" id="dropzone-content">
+                    <div class="dropzone-icon">
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                        <polyline points="9 15 12 12 15 15"></polyline>
+                      </svg>
+                    </div>
+                    <p class="dropzone-text"><strong>Click karein</strong> ya PDF drag & drop karein</p>
+                    <span class="dropzone-hint">JKSSB, SSC, JKPSC, Railway, Defense notices (PDF)</span>
+                  </div>
+                  
+                  <div class="dropzone-file-info" id="dropzone-file-info" style="display:none;">
+                    <div class="dropzone-file-meta">
+                      <span class="pdf-icon-badge">PDF</span>
+                      <div class="pdf-file-details">
+                        <span id="ai-pdf-filename" class="pdf-filename">notice.pdf</span>
+                        <span id="ai-pdf-filesize" class="pdf-filesize">0 KB</span>
+                      </div>
+                    </div>
+                    <button type="button" id="ai-remove-pdf-btn" class="ai-btn-icon-danger" title="Remove File">&times;</button>
+                  </div>
+                </div>
+
+                <div class="ai-pdf-action-row">
+                  <button type="button" id="ai-extract-btn" class="ai-btn-glow full-width" disabled>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                    <span>⚡ AI Auto-Scan & Extract Details</span>
+                  </button>
+                </div>
+                
+                <div id="ai-extract-progress" class="ai-progress-wrap" style="display:none;">
+                  <div class="ai-progress-bar"><div class="ai-progress-fill" id="ai-progress-fill"></div></div>
+                  <span class="ai-progress-text" id="ai-progress-text">Extracting PDF text...</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Extracted Vacancy Preview & 1-Click Update Card -->
+            <div id="ai-extracted-preview" class="ai-extracted-card" style="display:none;">
+              <div class="ai-preview-header">
+                <div class="ai-preview-title">
+                  <span class="ai-sparkle-badge">✨ AI Extracted Vacancy Details</span>
+                  <span class="ai-preview-sub">Check karein ya edit karein, phir 1-Click se website par live update karein:</span>
+                </div>
+                <div class="ai-voice-announcement-toggle">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="ai-voice-speak-toggle" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span class="toggle-label">🔊 Voice Feedback</span>
+                </div>
+              </div>
+
+              <div class="admin-form-grid ai-preview-grid">
+                <div class="admin-form-group full">
+                  <label for="ai-p-name">Exam / Post Name</label>
+                  <input type="text" id="ai-p-name" class="admin-input" placeholder="e.g. JKSSB Junior Assistant 2026">
+                </div>
+
+                <div class="admin-form-group">
+                  <label for="ai-p-dept">Department / Authority</label>
+                  <input type="text" id="ai-p-dept" class="admin-input" placeholder="e.g. J&K Services Selection Board">
+                </div>
+
+                <div class="admin-form-group">
+                  <label for="ai-p-posts">Total Posts / Scope</label>
+                  <input type="text" id="ai-p-posts" class="admin-input" placeholder="e.g. 2,450+ Vacancies">
+                </div>
+
+                <div class="admin-form-group full">
+                  <label for="ai-p-eligibility">Eligibility Criteria</label>
+                  <input type="text" id="ai-p-eligibility" class="admin-input" placeholder="e.g. Graduation in Any Discipline + 35 WPM Typing">
+                </div>
+
+                <div class="admin-form-group">
+                  <label for="ai-p-deadline">Last Date / Deadline</label>
+                  <input type="text" id="ai-p-deadline" class="admin-input" placeholder="e.g. 25 Oct 2026">
+                </div>
+
+                <div class="admin-form-group">
+                  <label for="ai-p-category">Category</label>
+                  <select id="ai-p-category" class="admin-select">
+                    <option value="jk-state">Jammu & Kashmir (JKSSB / Police / State)</option>
+                    <option value="central">Central Govt (SSC / Railway / UPSC)</option>
+                    <option value="defense">Police & Defense Forces</option>
+                    <option value="entrance">Admissions & Entrance (CUET / NEET)</option>
+                    <option value="scholarship">Scholarships (PMSSS / National)</option>
+                  </select>
+                </div>
+
+                <div class="admin-form-group full">
+                  <label for="ai-p-docs">Mandatory Documents Checklist</label>
+                  <textarea id="ai-p-docs" class="admin-textarea" rows="2" placeholder="e.g. Domicile, 10th Marks Card, Degree, Aadhaar, Photos"></textarea>
+                </div>
+              </div>
+
+              <!-- AI Actions -->
+              <div class="ai-action-buttons">
+                <button type="button" id="ai-publish-direct-btn" class="admin-btn-primary btn-success-glow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>🚀 1-Click Update Live on Website</span>
+                </button>
+                <button type="button" id="ai-transfer-form-btn" class="admin-btn-secondary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                  <span>Review in Standard Form</span>
+                </button>
+                <button type="button" id="ai-clear-preview-btn" class="admin-btn-secondary">
+                  <span>Reset / Clear</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Optional Advanced AI Key Accordion -->
+            <details class="ai-advanced-settings">
+              <summary><span>⚙️ Optional: Advanced Google Gemini API Key (Deep LLM Analysis)</span></summary>
+              <div class="ai-advanced-content">
+                <p>Default built-in PDF parser zero-configuration se fast kaam karta hai. Agar aap Google Gemini 1.5 Flash se complex scanned PDFs parse karwana chahte hain, toh yahan free Gemini API key daal sakte hain:</p>
+                <div class="admin-form-group full" style="margin-top:0.75rem;">
+                  <div class="ai-key-input-row">
+                    <input type="password" id="ai-gemini-api-key" class="admin-input" placeholder="Paste Gemini API Key (AIzaSy...)">
+                    <button type="button" id="ai-save-key-btn" class="admin-btn-sm btn-blue">Save Key</button>
+                    <button type="button" id="ai-remove-key-btn" class="admin-btn-sm btn-gray">Remove</button>
+                  </div>
+                  <small id="ai-key-status" class="ai-key-status">Key is stored securely only in your browser localStorage.</small>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </div>
+
         <!-- Tab 3: Google Sheets Live Sync -->
         <div id="tab-gsheet" class="admin-tab-pane">
           <div class="gsheet-instructions-card">
@@ -1871,6 +2075,7 @@
   <!-- Toast Notification Container -->
   <div id="toast-container" class="toast-container"></div>
 
-  <script src="script.js?v=20260908_clean_pin"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="script.js?v=20260908_ai_voice"></script>
 </body>
 </html>
